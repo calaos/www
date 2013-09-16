@@ -1,8 +1,319 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-</head>
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calaos, Open Source Home Automation System">
+    <meta name="author" content="Calaos Team">
+
+    <link rel="shortcut icon" href="ico/favicon.ico">
+    <link rel=”apple-touch-icon-precomposed” sizes=”57×57" href=”ico/apple-touch-icon-57×57-precomposed.png”>
+    <link rel=”apple-touch-icon-precomposed” sizes=”72×72" href=”ico/apple-touch-icon-72×72-precomposed.png”>
+    <link rel=”apple-touch-icon-precomposed” sizes=”114×114" href=”ico/apple-touch-icon-114×114-precomposed.png”>
+    <link rel=”apple-touch-icon-precomposed” sizes=”144×144" href=”ico/apple-touch-icon-144×144-precomposed.png”>
+
+    <title>Calaos, Open Source Home Automation System</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+    <link href="css/carousel.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/blueimp-gallery.css">
+    <link rel="stylesheet" href="css/blueimp-gallery-indicator.css">
+    <link rel="stylesheet" href="css/blueimp-gallery-video.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+  </head>
+
 <body>
-</body>
+    <div class="navbar-wrapper">
+      <div class="container">
+
+        <div class="navbar navbar-inverse navbar-static-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">Calaos</a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Accueil</a></li>
+                <li><a href="https://www.calaos.fr/forum/">Forum</a></li>
+                <li><a href="http://www.calaos.fr/wiki/">Wiki</a></li>
+                <li><a href="http://www.calaos.fr/calaos_network">Calaos Network</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ressources <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Gallerie Images</a></li>
+                    <li><a href="http://calaos.fr/images">Télécharger</a></li>
+                    <li><a href="https://github.com/calaos">Code Source</a></li>
+                    <li><a href="#contact">Contacter l'équipe</a></li>
+                    <li><a href="#">Installateurs</a></li>
+                    <li><a data-toggle="modal" href="#myModal">A Propos</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Liens Externes</li>
+                    <li><a href="http://www.wago.fr">Wago Automation</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+<!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="item active">
+          <div class="container">
+            <div class="carousel-caption">
+              <img src="img/presentation.png" alt="pic" class="carousel-img pull-right">
+              <h1>Vous avez dit "Domotique" ... </h1>
+              <p>Loin d'être un concept réservé aux initiés, la domotique permet d'allier automatisme et informatique pour rendre votre maison plus intelligente et faciliter ainsi votre quotidien. </p>
+              <p>Calaos Home est une solution complète, adaptable aux habitudes de votre foyer. Nul besoin de connaissances techniques, Calaos Home est à la portée de tous grâce à son interface tactile intuitive.</p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="container">
+            <div class="carousel-caption">
+            <img src="img/IMG_6834-300x200.jpg" alt="pic" class="img-thumbnail carousel-img pull-left">
+              <h1>Calaos est une solution innovante </h1>
+              <p>Permet d'associer confort et sécurité dans votre maison. Elle assure également une gestion et un contrôle efficace de votre environnement. Diffuser votre musique et vos radios préférées, dans toutes les pièces de la maison simultanément.</p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="container">
+            <div class="carousel-caption">
+            <img src="img/IMG_6813.jpg" alt="pic" class="img-thumbnail carousel-img pull-left">
+              <h1>Rester connecté à votre maison</h1>
+              <P>Qu'il s'agisse de contrôle, de sécurité, d'optimisation de vos consommations énergétiques, de confort ou simplement de bien-être, vos besoin seront gérés pour vous par votre maison.</p>
+              <p>Piloter votre maison depuis un smartphone ou une tablette, où que vous soyez dans le monde, avec un accès à Internet.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div><!-- /.carousel -->
+
+<!-- img src="images/ban1.png" width="309" height="238"-->
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-lg-4">
+          <!-- img class="img-circle" src="data:image/png;base64," data-src="holder.js/140x140" alt="Generic placeholder image" -->
+          <img src="img/btn_home.png" width="161" height="107" alt="Image 1">
+          <h2>Bienvenue chez vous</h2>
+          <p>Après une longue journée de travail, votre seule envie: vous relaxer ! En entrant Calaos Home va vous préparer un environnement chaleureux, volets fermés, lumières tamisées, musique préférées.</p>
+          <p><!-- a class="btn btn-default" href="#">View details &raquo;</a --></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <!-- img class="img-circle" src="data:image/png;base64," data-src="holder.js/140x140" alt="Generic placeholder image" -->
+          <img src="img/btn_media.png" width="161" height="107" alt="Image 1">
+          <h2>Piloter sa musique</h2>
+          <p>Partage de toute votre musique. Elle est accessible via votre réseau domestique. Ne cherchez plus, ne transférer plus, retrouvez en un instant le titre que vous souhaitez écouter.</p>
+          <p><!-- a class="btn btn-default" href="#">View details &raquo;</a --></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <!-- img class="img-circle" src="data:image/png;base64," data-src="holder.js/140x140" alt="Generic placeholder image" -->
+          <img src="img/btn_scenario.png" width="161" height="107"alt="Image 1">
+          <h2>Scénarisez votre quotidien</h2>
+          <p>Tous les éléments reliés à votre domotique sont scénarisables, par période, ambiance ou activité diverse. Votre maison devient intelligente dés aujourd'hui.</p>
+          <p><!-- a class="btn btn-default" href="#">View details &raquo;</a --></p>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+
+
+      <!-- START THE FEATURETTES -->
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+        <div class="col-md-5">
+          <!-- img class="featurette-image img-responsive" src="data:image/png;base64," data-src="holder.js/500x500/auto" alt="Generic placeholder image" -->
+          <img src="img/home1.png" width="500" height="375" alt="Image 1">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-5">
+          <img src="img/home2.png" width="500" height="375" alt="Image 2">
+        </div>
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Ecoutez et Scénarisez... <span class="text-muted">Orchestrez ambiances lumineuses et sonores selon vos envies.</span></h2>
+          <p class="lead">C'est reconnu, la musique a de nombreuses vertus... Calaos Home intègre un module supplémentaire spécialement dédié à la gestion musicale, dont chacun pourra bénéficier selon ses goûts car, à chaque espace de votre maison correspondra un lecteur de musique spécifique. De plus, Calaos offre l'opportunité de gérer votre base de données musicale ou d'écouter la radio sur Internet sans démarrer votre ordinateur personnel !</p>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Votre maison est sécurisée. <span class="text-muted">Partez de chez vous en toute sérénité.</span></h2>
+          <p class="lead">Les caméras fixes et motorisées installées au coeur et à l'extérieur de votre foyer détecteront de façon automatique les intrusions de jour comme de nuit. Nul besoin de s'inquiéter pendant vos départs en vacances. Simulez votre présence à l'aide de nombreux scénarios lumineux en extérieur et intérieur. Visualisez vos caméras depuis votre smartphone.</p>
+        </div>
+        <div class="col-md-5">
+          <!-- img class="featurette-image img-responsive" src="data:image/png;base64," data-src="holder.js/500x500/auto" alt="Generic placeholder image" -->
+          <img src="img/home3.png" width="500" height="375" alt="Image 3">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <!-- /END THE FEATURETTES -->
+
+      <h2>Image gallery</h2>
+      <div id="links" class="links"></div>
+<!-- The Gallery as lightbox dialog, should be a child element of the document body -->
+<div id="blueimp-gallery" class="blueimp-gallery">
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+</div>
+<script src="js/blueimp-helper.js"></script>
+<script src="js/blueimp-gallery.js"></script>
+<script src="js/blueimp-gallery-fullscreen.js"></script>
+<script src="js/blueimp-gallery-indicator.js"></script>
+<script src="js/blueimp-gallery-video.js"></script>
+<script>
+/*jslint evil: true */
+/*global window, document*/
+// Including jQuery via the protocol relative url above works for both http and https.
+// Explicitly including jQuery via http allows running the Gallery demo as local file:
+if (!window.jQuery) {
+    document.write(
+        '<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"><\/script>'
+    );
+}
+
+$(function () {
+    'use strict';
+
+    // Load images from flickr:
+    $.ajax({
+        url: window.location.protocol === 'https:' ?
+                'https://secure.flickr.com/services/rest/' :
+                'http://api.flickr.com/services/rest/',
+        data: {
+            format: 'json',
+            method: 'flickr.people.getPublicPhotos',
+            api_key: 'c56a5892f56198da75d06cba95a71c40',
+            user_id: '57310638@N07',
+            per_page: '500'
+        },
+        dataType: 'jsonp',
+        jsonp: 'jsoncallback'
+    }).done(function (result) {
+        var carouselLinks = [],
+            linksContainer = $('#links'),
+            baseUrl;
+        // Add the demo images as links with thumbnails to the page:
+        $.each(result.photos.photo, function (index, photo) {
+            baseUrl = 'http://farm' + photo.farm + '.static.flickr.com/' +
+                photo.server + '/' + photo.id + '_' + photo.secret;
+            $('<a/>')
+                .append($('<img>').prop('src', baseUrl + '_s.jpg'))
+                .prop('href', baseUrl + '_b.jpg')
+                .prop('title', photo.title)
+                .attr('data-gallery', '')
+                .appendTo(linksContainer);
+            carouselLinks.push({
+                href: baseUrl + '_c.jpg',
+                title: photo.title
+            });
+        });
+        // Initialize the Gallery as image carousel:
+        blueimp.Gallery(carouselLinks, {
+            container: '#blueimp-image-carousel',
+            carousel: true
+        });
+    });
+});
+
+</script>
+<script src="js/jquery.blueimp-gallery.js"></script>
+
+
+      <!-- FOOTER -->
+      <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>Bas de page &middot; <a href="#">GNU Licence</a> &middot; <a href="#">Terms</a></p>
+      </footer>
+
+    </div><!-- /.container -->
+
+
+    <!-- ABOUT MIDAL POPUP
+    ================================================== -->
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">A Propos de Calaos</h4>
+        </div>
+        <div class="modal-body">
+
+              <h1>Vous avez dit "Domotique" ... </h1><br>
+              <p>Loin d'être un concept réservé aux initiés, la domotique permet d'allier automatisme et informatique pour rendre votre maison plus intelligente et faciliter ainsi votre quotidien. </p>
+              <p>Calaos Home est une solution complète, adaptable aux habitudes de votre foyer. Nul besoin de connaissances techniques, Calaos Home est à la portée de tous grâce à son interface tactile intuitive.</p>
+              <P>Initialement Calaos était un système de domotique développé par la société du même nom, et partiellement Open Source. Lorsque la société a fermé ces portes courant 2013, l'intégralité du code source a été ouvert et mis sous licence GPL et une petite communauté s'est formée pour continuer le développement.</p>
+              <P>La communauté s'agrandi chaque jour, le Wiki et le Forum sont là pour partager les informations et les bonnes idées. N'hésitez pas à prendre contact.</P>
+            <br><P><b>L'équipe de Calaos</b></P>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
 </html>
