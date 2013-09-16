@@ -55,11 +55,11 @@
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ressources <b class="caret"></b></a>
                   <ul class="dropdown-menu">
-                    <li><a href="#">Gallerie Images</a></li>
-                    <li><a href="http://calaos.fr/images">Télécharger</a></li>
+                    <li><a href="#gallery">Gallerie Images</a></li>
+                    <li><a href="http://calaos.fr/download">Télécharger</a></li>
                     <li><a href="https://github.com/calaos">Code Source</a></li>
                     <li><a href="#contact">Contacter l'équipe</a></li>
-                    <li><a href="#">Installateurs</a></li>
+                    <li><a data-toggle="modal" href="#modalInstall">Installateurs</a></li>
                     <li><a data-toggle="modal" href="#myModal">A Propos</a></li>
                     <li class="divider"></li>
                     <li class="dropdown-header">Liens Externes</li>
@@ -195,7 +195,7 @@
 
       <!-- /END THE FEATURETTES -->
 
-      <h2>Image gallery</h2>
+      <h2 id="gallery">Image gallery</h2>
       <div id="links" class="links"></div>
 <!-- The Gallery as lightbox dialog, should be a child element of the document body -->
 <div id="blueimp-gallery" class="blueimp-gallery">
@@ -270,6 +270,32 @@ $(function () {
 </script>
 <script src="js/jquery.blueimp-gallery.js"></script>
 
+<hr class="featurette-divider">
+
+<div id="contact" class="page-header">
+        <h1>Contacter l'équipe</h1>
+        <p class="lead">Plusieurs méthodes pour contacter les développeurs sont disponibles</p>
+
+        <div class="bs-callout bs-callout-info">
+      <h4>Règles</h4>
+      <ul>
+      <li>La règle de base sur les canaux de discussion calaos, la courtoisie!</li>
+      <li>Aucune demande commerciale ne doit être faite sur ces canaux de discussion</li>
+      </ul>
+    </div>
+      </div>
+
+      <h3>Forum</h3>
+      <p>Le <a href="https://calaos.fr/forum">forum</a> est disponible pour poser des questions, s'échanger des trucs et astuces ou encore avoir des retours sur des installations domotique de differents utilisateurs.</p>
+
+      <h3>E-Mail</h3>
+      <p>Un groupe de discussion est en place sur Google Groups, vous pouvez y envoyer vos mails et nous tenterons d'y répondre du mieux possible. Le groupe est <a href="https://groups.google.com/forum/#!forum/calaos-dev">https://groups.google.com/forum/#!forum/calaos-dev</a></p>
+
+      <h3>IRC</h3>
+      <p>Un canal IRC est disponible pour des discussions instantanées. Le canal est plus utilisé par les dévelopeurs et permet d'échanger rapidement. Il y aura la plupart du temps quelqu'un pour vous répondre.<br/><code>Canal: #calaos<br/>Serveur: irc.freenode.net<br />Port: 6667</code></p>
+
+
+    <hr class="featurette-divider">
 
       <!-- FOOTER -->
       <footer>
@@ -278,7 +304,6 @@ $(function () {
       </footer>
 
     </div><!-- /.container -->
-
 
     <!-- ABOUT MIDAL POPUP
     ================================================== -->
@@ -297,6 +322,7 @@ $(function () {
               <p>Calaos Home est une solution complète, adaptable aux habitudes de votre foyer. Nul besoin de connaissances techniques, Calaos Home est à la portée de tous grâce à son interface tactile intuitive.</p>
               <P>Initialement Calaos était un système de domotique développé par la société du même nom, et partiellement Open Source. Lorsque la société a fermé ces portes courant 2013, l'intégralité du code source a été ouvert et mis sous licence GPL et une petite communauté s'est formée pour continuer le développement.</p>
               <P>La communauté s'agrandi chaque jour, le Wiki et le Forum sont là pour partager les informations et les bonnes idées. N'hésitez pas à prendre contact.</P>
+              <p>Pour toute demande commerciale, merci de contacter un installateur. La communauté et les développeurs du projet Calaos ne répondront pas à ces demandes.</p>
             <br><P><b>L'équipe de Calaos</b></P>
         </div>
         <div class="modal-footer">
@@ -307,7 +333,37 @@ $(function () {
   </div><!-- /.modal -->
 
 
+  <div class="modal fade" id="modalInstall" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Contacter un installateur</h4>
+        </div>
+        <div class="modal-body">
 
+              <h1>Liste d'installateur Calaos</h1><br>
+<address>
+  <strong>Jean-Marc Wolf</strong><br>
+  Tel, 06 61 21 17 79<br>
+</address>
+
+<address>
+  <strong>Domotique Elec 38</strong><br>
+  Site web, <a href="http://domotiqueelec38.fr">domotiqueelec38.fr</a><br>
+</address>
+
+<address>
+  <strong>Aldome</strong><br>
+  Site web, <a href="http://aldome.fr">aldome.fr</a><br>
+</address>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
 
 
     <!-- Bootstrap core JavaScript
