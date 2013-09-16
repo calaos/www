@@ -226,15 +226,17 @@ if (!window.jQuery) {
 $(function () {
     'use strict';
 
-    // Load demo images from flickr:
+    // Load images from flickr:
     $.ajax({
         url: window.location.protocol === 'https:' ?
                 'https://secure.flickr.com/services/rest/' :
                 'http://api.flickr.com/services/rest/',
         data: {
             format: 'json',
-            method: 'flickr.interestingness.getList',
-            api_key: '7617adae70159d09ba78cfec73c13be3'
+            method: 'flickr.people.getPublicPhotos',
+            api_key: 'c56a5892f56198da75d06cba95a71c40',
+            user_id: '57310638@N07',
+            per_page: '500'
         },
         dataType: 'jsonp',
         jsonp: 'jsoncallback'
