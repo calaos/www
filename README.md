@@ -36,7 +36,7 @@ In the content file, `**text**` highlights a part of a heading. Each section is 
 
 Images go in `static/media/` and are referenced as `media/name.jpg`, with their size and, when they carry meaning, an `alt` text.
 
-The English page exists as a structure with empty texts and is not built. To publish it: fill `content/_index.en.md`, `i18n/en.yaml` and `config/_default/menus.en.toml`, then remove the `build` block at the top of `content/_index.en.md`. The root page then redirects to `/en/`.
+Each language has its own `content/_index.<lang>.md`, `i18n/<lang>.yaml` and `config/_default/menus.<lang>.toml`.
 
 The template is in `layouts/`: `baseof.html` for the shell shared by every page, `_partials/` for the header, footer and home sections. A new section only needs `content/<section>/` and its layouts, which fill the `main` block with a `<main id="content">`; it gets an RSS feed automatically.
 
