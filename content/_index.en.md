@@ -1,71 +1,66 @@
 ---
-# Not rendered until the texts are written: remove this block to publish /en/.
-# render: link keeps the page known, so the French page can still link to it.
-build:
-  render: link
-  list: never
-title: ""
-description: ""
+title: "Calaos, open source home automation"
+description: "Calaos is open source home automation under the GPLv3 that runs entirely in your home: server, mobile app, web interface and touchscreens."
 skip_to: comment
 
 hero:
-  title: ""
-  lead: ""
+  title: "Open source home automation, **in your home.**"
+  lead: "Control lights, shutters, heating, music and cameras from your phone, a touchscreen or a wall panel. Everything stays in your home: no cloud, no subscription."
   image:
     src: media/hero.jpg
     alt: ""
     width: 1600
     height: 1067
   buttons:
-    - label: ""
+    - label: "Getting started"
       url: "https://doc.calaos.fr/en/getting_started/"
       icon: arrow
-    - label: ""
+    - label: "Learn more"
       url: "#comment"
       icon: down
   trust:
     - icon: lock
-      text: ""
+      text: "100% local"
     - icon: check
-      text: ""
+      text: "No subscription"
     - icon: code
-      text: ""
-  photo_note: ""
+      text: "Open source, GPLv3"
+  photo_note: "Placeholder photo"
 
 kiosk:
   image:
     src: media/kiosk-home.png
-    alt: ""
+    alt: "Calaos home screen on a touchscreen"
     width: 1024
     height: 768
-  caption: ""
+  caption: "The Calaos home screen on a touchscreen."
 
 how:
-  eyebrow: ""
-  title: ""
-  text: ""
+  eyebrow: "How it works"
+  title: "Three steps, **one home**."
+  text: "From the hardware you already own to an interface the whole family uses."
   steps:
-    - title: ""
-      text: ""
-      note: ""
-    - title: ""
-      text: ""
-      note: ""
-    - title: ""
-      text: ""
-      note: ""
+    - title: "Connect your hardware"
+      text: "Calaos talks to the controllers, buses and devices you already have, without going through an external service."
+      note: "Wago, KNX, Philips Hue, MQTT, ESPHome…"
+    - title: "Describe your home"
+      text: "With Calaos Installer, you set up rooms, devices and scenarios once, then send them to your home."
+      note: "Calaos Installer, on your computer"
+    - title: "Control everything, anywhere"
+      text: "The same settings on your phone, wall panel, touchscreen and browser."
+      note: "Also by text or voice, through MCP"
 
 daily:
-  eyebrow: ""
-  title: ""
+  eyebrow: "Day to day"
+  title: "What you already **control**, made simple."
   rows:
-    - title: ""
+    - title: "Lights"
       icon: bulb
-      text: ""
+      text: "Switch, dim and group them: one room, one floor or the whole house."
       tags:
-        - ""
-        - ""
-        - ""
+        - "Rooms"
+        - "Groups"
+        - "Dimming"
       photo:
         src: media/maison_5_2008082194-IMG_9340.jpg
         alt: ""
@@ -73,16 +68,16 @@ daily:
         height: 1140
       screen:
         src: media/mobile-home.png
-        alt: ""
+        alt: "Calaos on a phone"
         width: 390
         height: 844
-    - title: ""
+    - title: "Heating"
       icon: thermo
-      text: ""
+      text: "A setpoint per room, weekly schedules, the temperature curve."
       tags:
-        - ""
-        - ""
-        - ""
+        - "Setpoints"
+        - "Schedules"
+        - "History"
       photo:
         src: media/maison_4_20080819-IMG_9193.jpg
         alt: ""
@@ -90,16 +85,16 @@ daily:
         height: 507
       screen:
         src: media/mobile-sheet-thermostat.png
-        alt: ""
+        alt: "Calaos on a phone"
         width: 390
         height: 844
-    - title: ""
+    - title: "Security"
       icon: cam
-      text: ""
+      text: "Live cameras, sensors, alarm: the footage stays in your home."
       tags:
-        - ""
-        - ""
-        - ""
+        - "Cameras"
+        - "Alarm"
+        - "Local"
       photo:
         src: media/maison_1_2008081460-IMG_8983.jpg
         alt: ""
@@ -107,185 +102,185 @@ daily:
         height: 507
       screen:
         src: media/mobile-rooms.png
-        alt: ""
+        alt: "Calaos on a phone"
         width: 390
         height: 844
   also:
-    - title: ""
+    - title: "Shutters"
       icon: blind
-      text: ""
-    - title: ""
+      text: "Raise, lower, or schedule them for whenever suits you."
+    - title: "Music"
       icon: music
-      text: ""
-    - title: ""
+      text: "One source per room, from your audio server."
+    - title: "Scenarios"
       icon: scene
-      text: ""
-    - title: ""
+      text: "One button, several actions: “Good night”, “I’m leaving”."
+    - title: "Energy"
       icon: bolt
-      text: ""
-  note: ""
+      text: "Follow your readings and keep the history at home."
+  note: "Mood photos."
 
 interfaces:
-  eyebrow: ""
-  title: ""
+  eyebrow: "Interfaces"
+  title: "One home, **many ways** to control it."
   tabs:
-    - label: ""
-      text: ""
+    - label: "Mobile"
+      text: "The mobile app connects to your Calaos server with its address, your username and your password. It gives you access to rooms and their devices: lights (dimming and color), shutters, outlets, sensors, climate control. You can run a scenario, watch your cameras and control audio players. The display follows what happens in the house live, and a push notification opens the event it is about. The interface is available in French, English and German."
       image:
         src: media/mobile-sheet-thermostat.png
-        alt: ""
+        alt: "Calaos on a phone"
         width: 390
         height: 844
-    - label: ""
-      text: ""
+    - label: "Wall panel"
+      text: "The wall panel is a touchscreen mounted on the wall, running Calaos firmware on an ESP32-P4. It connects over Ethernet or Wi-Fi, finds the server on your network and pairs with it using a short code. The server sends it its pages: light switches, temperature, scenarios, shutters, climate, clock and screensaver. A 720 × 720 model also includes two relays. The firmware updates from the server and rolls back to the previous version if an update fails."
       image:
         src: media/rui-large-2x2.png
-        alt: ""
+        alt: "Wall panel"
         width: 720
         height: 720
-    - label: ""
-      text: ""
+    - label: "Touchscreen"
+      text: "Calaos Home also comes in a full-screen version for a fixed touchscreen running Calaos OS. It offers the same features as the mobile app: rooms, scenarios, cameras and audio players, with an on-screen keyboard. You can place movable widgets on it, such as a clock, a note or the weather. Network, language and system updates are all set from the screen itself."
       image:
         src: media/kiosk-home.png
-        alt: ""
+        alt: "Touchscreen"
         width: 1024
         height: 768
-    - label: ""
-      text: ""
+    - label: "Browser"
+      text: "The web interface is served by the Calaos server itself: just open its address in a browser, with nothing to install. It shows rooms and their devices, scenarios, cameras and audio players. The display updates live, without reloading the page."
       image:
         src: media/web-room-list.png
-        alt: ""
+        alt: "Calaos in a browser"
         width: 1280
         height: 900
   extras:
-    - title: ""
+    - title: "Assistant, through MCP"
       icon: ai
-      text: ""
+      text: "“Turn off everything downstairs and set the bedroom to 19 degrees.” An AI assistant connected to your home."
 
 compat:
-  eyebrow: ""
-  title: ""
-  text: ""
+  eyebrow: "Compatibility"
+  title: "Your hardware, **as it is**."
+  text: "A few examples of the supported protocols and devices. The full list is in the documentation."
   groups:
-    - title: ""
+    - title: "Controllers and buses"
       items:
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-    - title: ""
+        - "Wago Modbus"
+        - "DALI"
+        - "KNX"
+        - "1-Wire"
+        - "DMX"
+    - title: "Wireless and network"
       items:
-        - ""
-        - ""
-        - ""
-    - title: ""
+        - "MQTT"
+        - "ESPHome"
+        - "Philips Hue"
+    - title: "Cameras"
       items:
-        - ""
-        - ""
-        - ""
-        - ""
-    - title: ""
+        - "Reolink"
+        - "Axis"
+        - "Foscam"
+        - "Synology"
+    - title: "Audio"
       items:
-        - ""
-        - ""
-        - ""
-        - ""
-        - ""
-    - title: ""
+        - "Squeezebox / LMS"
+        - "Roon"
+        - "Denon"
+        - "Onkyo"
+        - "Yamaha"
+    - title: "Energy and metering"
       items:
-        - ""
-    - title: ""
+        - "InfluxDB"
+    - title: "Going further"
       items:
-        - ""
-        - ""
-        - ""
+        - "Lua scripts"
+        - "Local API"
+        - "MCP"
 
 why:
-  eyebrow: ""
-  title: ""
+  eyebrow: "Why Calaos"
+  title: "A home that **belongs to you**."
   items:
-    - title: ""
+    - title: "Open"
       icon: code
-      text: ""
-    - title: ""
+      text: "GPLv3-licensed code: you can read it, change it and host it yourself."
+    - title: "Local"
       icon: lock
-      text: ""
-    - title: ""
+      text: "Everything works without internet. Your data stays in your home."
+    - title: "Built to last"
       icon: home
-      text: ""
-    - title: ""
+      text: "Standard protocols and hardware of your choice: nothing depends on a single manufacturer."
+    - title: "Actively developed"
       icon: undo
-      text: ""
-    - title: ""
+      text: "The project is active on GitHub: public releases, fixes, new features."
+    - title: "A community"
       icon: people
-      text: ""
+      text: "Users and contributors helping each other on Discord and GitHub."
 
 start:
-  eyebrow: ""
-  title: ""
-  text: ""
+  eyebrow: "Get started"
+  title: "A mini PC, a USB stick, **one afternoon**."
+  text: "Calaos runs on an x86_64 mini PC. Prepare a USB stick, install, then describe your home."
   buttons:
-    - label: ""
+    - label: "Download Calaos OS"
       url: "https://calaos.fr/download/"
       icon: arrow
-    - label: ""
-      url: "https://doc.calaos.fr"
+    - label: "Read the documentation"
+      url: "https://doc.calaos.fr/en/"
   steps:
-    - title: ""
-      text: ""
-    - title: ""
-      text: ""
-    - title: ""
-      text: ""
-    - title: ""
-      text: ""
+    - title: "Download the Calaos OS image"
+      text: "A ready-to-use Debian base."
+    - title: "Write it to a USB stick"
+      text: "Then boot the mini PC from it."
+    - title: "Describe your home"
+      text: "With Calaos Installer."
+    - title: "Follow the documentation"
+      text: "doc.calaos.fr, step by step."
 
 community:
-  eyebrow: ""
-  title: ""
+  eyebrow: "Community"
+  title: "An **open** project."
   cards:
-    - title: ""
+    - title: "Discord"
       icon: discord
-      text: ""
+      text: "Ask questions, show off your setup."
       link:
-        label: ""
+        label: "Join the Discord"
         url: "https://discord.gg/FpBT9yhZxp"
-    - title: ""
+    - title: "GitHub"
       icon: github
-      text: ""
+      text: "Code, issues and contributions, open to everyone."
       link:
-        label: ""
+        label: "github.com/calaos"
         url: "https://github.com/calaos"
 
 support:
-  title: ""
-  text: ""
+  title: "Support Calaos"
+  text: "The project needs your time as well as your money. There is no minimum amount: give what you like."
   time:
-    title: ""
+    title: "Give time"
     items:
-      - title: ""
-        text: ""
+      - title: "Developers"
+        text: "Contact the team to see the ongoing tasks and get pointed in the right direction."
         link:
-          label: ""
+          label: "Write on Discord"
           url: "https://discord.gg/FpBT9yhZxp"
-      - title: ""
-        text: ""
+      - title: "Documentation"
+        text: "Help us improve the documentation."
         link:
-          label: ""
-          url: "https://doc.calaos.fr"
-      - title: ""
-        text: ""
-      - title: ""
-        text: ""
-      - title: ""
-        text: ""
+          label: "Open the documentation"
+          url: "https://doc.calaos.fr/en/"
+      - title: "Translations"
+        text: "Translate the various pieces of software."
+      - title: "Design"
+        text: "Help with the website and the interfaces."
+      - title: "Feedback"
+        text: "Report a problem you ran into."
         link:
-          label: ""
+          label: "Open an issue"
           url: "https://github.com/calaos/calaos_base/issues"
   money:
-    title: ""
-    text: ""
-    paypal: ""
-    bitcoin: ""
+    title: "Donate money"
+    text: "Donations pay for the servers and subscriptions behind Calaos services, for hardware to develop and add support for new devices, and for promoting the project."
+    paypal: "Donate with PayPal"
+    bitcoin: "Bitcoin address"
 ---

@@ -1,78 +1,78 @@
 [[main]]
-name = ""
+name = "How it works"
 url = "#comment"
 weight = 10
 
 [[main]]
-name = ""
+name = "Day to day"
 url = "#quotidien"
 weight = 20
 
 [[main]]
-name = ""
+name = "Interfaces"
 url = "#interfaces"
 weight = 30
 
 [[main]]
-name = ""
+name = "Compatibility"
 url = "#compat"
 weight = 40
 
 [[main]]
-name = ""
+name = "Community"
 url = "#communaute"
 weight = 50
 
 [[main]]
-name = ""
-url = "https://doc.calaos.fr"
+name = "Documentation"
+url = "https://doc.calaos.fr/en/"
 weight = 60
 
 [[main]]
-name = ""
+name = "GitHub"
 url = "https://github.com/calaos"
 weight = 70
 [main.params]
 icon = "github"
 
 [[main]]
-name = ""
+name = "Download"
 url = "https://calaos.fr/download/"
 weight = 80
 [main.params]
 button = true
 
 [[product]]
-name = ""
+name = "How it works"
 url = "#comment"
 weight = 10
 
 [[product]]
-name = ""
+name = "Day to day"
 url = "#quotidien"
 weight = 20
 
 [[product]]
-name = ""
+name = "Interfaces"
 url = "#interfaces"
 weight = 30
 
 [[product]]
-name = ""
+name = "Compatibility"
 url = "#compat"
 weight = 40
 
 [[resources]]
-name = ""
+name = "Download"
 url = "https://calaos.fr/download/"
 weight = 10
 
 [[resources]]
-name = ""
-url = "https://doc.calaos.fr"
+name = "Documentation"
+url = "https://doc.calaos.fr/en/"
 weight = 20
 
 [[resources]]
-name = ""
+name = "GitHub"
 url = "https://github.com/calaos"
 weight = 30
