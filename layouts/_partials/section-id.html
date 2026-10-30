@@ -1,0 +1,3 @@
+{{- $id := .id | default "" | string | strings.TrimSpace -}}
+{{- if not $id -}}{{- errorf "content/_index.%s.md: section %q has no id (required: anchor target of the menu and buttons)" site.Language.Lang .name -}}{{- end -}}
+{{- return $id -}}

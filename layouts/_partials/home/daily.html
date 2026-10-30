@@ -1,4 +1,4 @@
-<section id="{{ .id }}"><div class="wrap">{{ partial "section-head.html" . }}<div class="rows">
+<section id="{{ partial "section-id.html" (dict "name" "daily" "id" .id) }}"><div class="wrap">{{ partial "section-head.html" . }}<div class="rows">
 {{- range $i, $r := .rows -}}
 <article class="row{{ if modBool $i 2 }}{{ else }} rev{{ end }}"><div class="ph">{{ partial "image.html" (dict "img" .photo "lazy" true) }}{{ partial "image.html" (dict "img" .screen "lazy" true "class" "over") }}</div><div><h3>{{ partial "icon.html" .icon }}{{ .title }}</h3><p>{{ .text }}</p><div class="tag">{{ range .tags }}<span>{{ . }}</span>{{ end }}</div></div></article>
 {{- end -}}

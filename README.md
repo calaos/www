@@ -32,7 +32,7 @@ Everything a visitor can read is outside the template. Edit one file and rebuild
 | PayPal link and Bitcoin address | `data/donate.yaml` |
 | Contact address, Umami script and id | `config/_default/params.toml` |
 
-In the content file, `**text**` highlights a part of a heading. Each section is a block in the front matter, in page order. Blocks of a list (`rows`, `tabs`, `cards`, `items`…) can be added, removed or reordered freely.
+In the content file, `**text**` highlights a part of a heading. Each section is a block in the front matter, in page order. Each block has an `id:` (required, the build fails without it): it is the anchor targeted by the menu, the hero button and `skip_to`, so changing it means updating those, and it is not translated lightly since links to the page depend on it. Blocks of a list (`rows`, `tabs`, `cards`, `items`…) can be added, removed or reordered freely.
 
 Images go in `static/media/` and are referenced as `media/name.jpg`, with their size and, when they carry meaning, an `alt` text.
 
