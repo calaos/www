@@ -1,0 +1,5 @@
+.DS_Store
+public/
+resources/_gen/
+.hugo_build.lock
+*:Zone.Identifier
