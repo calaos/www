@@ -1,0 +1,22 @@
+{{- $page := . -}}
+<header class="nav" id="nav"><div class="wrap">
+<a class="logo" href="{{ partial "anchor-url.html" (dict "url" "#top" "page" $page) }}" aria-label="{{ T "logo_home" }}">{{ partial "logo.html" "lg-sd" }}</a>
+<nav class="menu" aria-label="{{ T "nav_main" }}">
+{{- range site.Menus.main -}}
+{{- $url := partial "anchor-url.html" (dict "url" .URL "page" $page) -}}
+{{- if .Params.button }}<a class="btn btn-p" href="{{ $url }}">{{ .Name }}</a>
+{{- else if .Params.icon }}<a class="menu-gh" href="{{ $url }}" aria-label="{{ T "nav_github" }}">{{ partial "icon.html" .Params.icon }}</a>
+{{- else }}<a href="{{ $url }}">{{ .Name }}</a>
+{{- end -}}
+{{- end -}}
+</nav>
+<button class="burger" aria-expanded="false" aria-controls="drawer" aria-label="{{ T "nav_burger" }}">{{ partial "icon.html" "menu" }}</button>
+</div><nav class="drawer" id="drawer" aria-label="{{ T "nav_mobile" }}">
+{{- range site.Menus.main -}}
+{{- $url := partial "anchor-url.html" (dict "url" .URL "page" $page) -}}
+{{- if .Params.button }}<a class="btn btn-p" href="{{ $url }}">{{ .Name }}</a>
+{{- else if .Params.icon }}<a href="{{ $url }}">{{ partial "icon.html" .Params.icon }}{{ .Name }}</a>
+{{- else }}<a href="{{ $url }}">{{ .Name }}</a>
+{{- end -}}
+{{- end -}}
+</nav></header>

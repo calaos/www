@@ -14,7 +14,7 @@ n.querySelector(".drawer").addEventListener("click",e=>{if(e.target.closest("a")
 document.querySelectorAll(".tabs").forEach(t=>{const bs=[...t.querySelectorAll("[role=tab]")];
 const sel=(x,f)=>{bs.forEach(y=>{const o=y===x;y.setAttribute("aria-selected",o);y.tabIndex=o?0:-1;document.getElementById(y.getAttribute("aria-controls")).hidden=!o});if(f)x.focus()};
 bs.forEach((x,i)=>{x.onclick=()=>sel(x);x.onkeydown=e=>{const k={ArrowRight:i+1,ArrowLeft:i-1,Home:0,End:bs.length-1}[e.key];if(k===undefined)return;e.preventDefault();sel(bs[(k+bs.length)%bs.length],1)}})});
-const cp=document.getElementById("cp");if(cp&&navigator.clipboard){cp.hidden=false;cp.onclick=()=>navigator.clipboard.writeText(document.getElementById("btc").textContent.trim()).then(()=>{cp.nextElementSibling.textContent="Adresse copiée.";setTimeout(()=>cp.nextElementSibling.textContent="",2500)},()=>{const r=document.createRange();r.selectNodeContents(document.getElementById("btc"));getSelection().removeAllRanges();getSelection().addRange(r);cp.nextElementSibling.textContent="Sélectionnée : copiez avec Ctrl+C."})}
+const cp=document.getElementById("cp");if(cp&&navigator.clipboard){cp.hidden=false;cp.onclick=()=>navigator.clipboard.writeText(document.getElementById("btc").textContent.trim()).then(()=>{cp.nextElementSibling.textContent=cp.dataset.done;setTimeout(()=>cp.nextElementSibling.textContent="",2500)},()=>{const r=document.createRange();r.selectNodeContents(document.getElementById("btc"));getSelection().removeAllRanges();getSelection().addRange(r);cp.nextElementSibling.textContent=cp.dataset.selected})}
 const mq=matchMedia("(prefers-reduced-motion: reduce)");
 if(!mq.matches){document.documentElement.classList.add("mo");
 const q=x=>[...document.querySelectorAll(x)],nav=document.getElementById("nav"),bar=document.createElement("div");
@@ -25,11 +25,11 @@ q(".rv").forEach(e=>io.observe(e));
 const d5=document.querySelector(".d5b");let ft=0;
 addEventListener("scroll",()=>{if(ft)return;ft=requestAnimationFrame(()=>{ft=0;
 const h=document.documentElement.scrollHeight-innerHeight;bar.style.setProperty("--p",h>0?Math.min(1,scrollY/h):0);
-const r=d5.getBoundingClientRect();d5.style.setProperty("--sc",Math.max(0,1-Math.abs(r.top+r.height/2-innerHeight/2)/innerHeight).toFixed(3))})},{passive:true});
+if(!d5)return;const r=d5.getBoundingClientRect();d5.style.setProperty("--sc",Math.max(0,1-Math.abs(r.top+r.height/2-innerHeight/2)/innerHeight).toFixed(3))})},{passive:true});
 if(matchMedia("(hover:hover) and (pointer:fine)").matches){const cs=q(".why li,.flow li,.row .ph");let pt=0,ev;
 addEventListener("pointermove",e=>{ev=e;if(pt)return;pt=requestAnimationFrame(()=>{pt=0;
 cs.forEach(c=>{const r=c.getBoundingClientRect();c.style.setProperty("--mx",ev.clientX-r.left+"px");c.style.setProperty("--my",ev.clientY-r.top+"px")});
-const f=d5.firstElementChild.getBoundingClientRect();
+if(!d5)return;const f=d5.firstElementChild.getBoundingClientRect();
 d5.style.setProperty("--tx",Math.max(-1,Math.min(1,(ev.clientX-f.left-f.width/2)/(innerWidth/2)))*3+"deg");
 d5.style.setProperty("--ty",Math.max(-1,Math.min(1,(ev.clientY-f.top-f.height/2)/(innerHeight/2)))*-3+"deg")})},{passive:true})}}
 const marks=[...document.querySelectorAll(".mark")];marks.forEach((m,i)=>m.style.setProperty("--dl",(i%3)*.15+"s"));

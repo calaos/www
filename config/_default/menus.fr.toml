@@ -1,0 +1,78 @@
+[[main]]
+name = "Comment ça marche"
+url = "#comment"
+weight = 10
+
+[[main]]
+name = "Au quotidien"
+url = "#quotidien"
+weight = 20
+
+[[main]]
+name = "Interfaces"
+url = "#interfaces"
+weight = 30
+
+[[main]]
+name = "Compatibilité"
+url = "#compat"
+weight = 40
+
+[[main]]
+name = "Communauté"
+url = "#communaute"
+weight = 50
+
+[[main]]
+name = "Documentation"
+url = "https://doc.calaos.fr"
+weight = 60
+
+[[main]]
+name = "GitHub"
+url = "https://github.com/calaos"
+weight = 70
+[main.params]
+icon = "github"
+
+[[main]]
+name = "Télécharger"
+url = "https://calaos.fr/download/"
+weight = 80
+[main.params]
+button = true
+
+[[product]]
+name = "Comment ça marche"
+url = "#comment"
+weight = 10
+
+[[product]]
+name = "Au quotidien"
+url = "#quotidien"
+weight = 20
+
+[[product]]
+name = "Interfaces"
+url = "#interfaces"
+weight = 30
+
+[[product]]
+name = "Compatibilité"
+url = "#compat"
+weight = 40
+
+[[resources]]
+name = "Télécharger"
+url = "https://calaos.fr/download/"
+weight = 10
+
+[[resources]]
+name = "Documentation"
+url = "https://doc.calaos.fr"
+weight = 20
+
+[[resources]]
+name = "GitHub"
+url = "https://github.com/calaos"
+weight = 30

@@ -1,0 +1,4 @@
+<section id="comment"><div class="wrap">{{ partial "section-head.html" . }}
+<ol class="flow">
+{{ range .steps }}<li><h3>{{ .title }}</h3><p>{{ .text }}</p><small>{{ .note }}</small></li>
+{{ end }}</ol></div></section>

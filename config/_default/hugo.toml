@@ -1,0 +1,14 @@
+baseURL = "https://calaos.fr/"
+title = "Calaos"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = true
+disableHugoGeneratorInject = true
+disableKinds = ["taxonomy", "term", "sitemap", "404"]
+
+# The home page has nothing to syndicate; sections keep Hugo's default RSS.
+[outputs]
+home = ["html"]
+
+[module.hugoVersion]
+extended = true
+min = "0.154.5"

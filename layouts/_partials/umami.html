@@ -1,0 +1,2 @@
+{{- /* Off under hugo server, so that previews stay out of the statistics. */ -}}
+{{ with site.Params.umami }}{{ if and hugo.IsProduction .script .id }}<script defer src="{{ .script }}" data-website-id="{{ .id }}"></script>{{ end }}{{ end }}

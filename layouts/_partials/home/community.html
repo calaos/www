@@ -1,0 +1,8 @@
+{{- $c := .community -}}{{- $s := .support -}}{{- $d := site.Data.donate -}}
+<section id="communaute"><div class="wrap">{{ partial "section-head.html" $c }}<div class="comm comm2">
+{{ range $c.cards }}<article>{{ partial "icon.html" .icon }}<h3>{{ .title }}</h3><p>{{ .text }}</p><a class="l" href="{{ .link.url }}">{{ .link.label }}</a></article>
+{{ end }}</div>
+<div class="don" id="don"><div class="sup-h"><h3>{{ $s.title }}</h3><p>{{ $s.text }}</p></div>
+<div class="sup-c"><h4>{{ $s.time.title }}</h4><ul class="sup-l">{{ range $s.time.items }}<li><b>{{ .title }}</b><span>{{ .text }}</span>{{ with .link }}<a class="l" href="{{ .url }}">{{ .label }}</a>{{ end }}</li>{{ end }}</ul></div>
+<div class="sup-c"><h4>{{ $s.money.title }}</h4><p>{{ $s.money.text }}</p><div class="don-r"><a class="btn btn-s" href="{{ $d.paypal }}">{{ $s.money.paypal }}</a>
+<div class="don-a"><span class="don-l">{{ $s.money.bitcoin }}</span><code id="btc">{{ $d.bitcoin }}</code><button type="button" class="btn btn-s" id="cp" hidden aria-describedby="btc" data-done="{{ T "copy_done" }}" data-selected="{{ T "copy_selected" }}">{{ T "copy" }}</button><span class="don-ok" role="status" aria-live="polite"></span></div></div></div></div></div></section>

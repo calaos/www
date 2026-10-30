@@ -1,0 +1,2 @@
+{{- /* Content files mark emphasis with **…**, so they stay free of HTML. */ -}}
+{{- .text | htmlEscape | replaceRE `\*\*(.+?)\*\*` (printf `<span class="%s">$1</span>` .class) | safeHTML -}}
