@@ -34,7 +34,7 @@ d5.style.setProperty("--tx",Math.max(-1,Math.min(1,(ev.clientX-f.left-f.width/2)
 d5.style.setProperty("--ty",Math.max(-1,Math.min(1,(ev.clientY-f.top-f.height/2)/(innerHeight/2)))*-3+"deg")})},{passive:true})}}
 const marks=[...document.querySelectorAll(".mark")];marks.forEach((m,i)=>m.style.setProperty("--dl",(i%3)*.15+"s"));
 const arm=()=>{marks.forEach(m=>m.classList.remove("on"));const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("on");io.unobserve(e.target)}}),{threshold:.6});marks.forEach(m=>io.observe(m))};
-arm();addEventListener("message",e=>{if(e.data&&e.data.replay){scrollTo(0,0);arm()}});
+arm();
 })();
 (()=>{const stage=document.querySelector(".stage");if(!stage||!stage.animate)return;
 const tabs=[...document.querySelectorAll(".tabs [role=tab]")],rm=matchMedia("(prefers-reduced-motion: reduce)"),small=matchMedia("(max-width:760px)"),panes=()=>[...stage.querySelectorAll(".pane")];

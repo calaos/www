@@ -1,24 +1,24 @@
 @font-face{font-family:'Manrope';font-style:normal;font-weight:400 800;font-display:swap;src:url(../fonts/manrope/manrope-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:'Manrope';font-style:normal;font-weight:400 800;font-display:swap;src:url(../fonts/manrope/manrope-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 :root{
-  /* neutres, zone claire (R1 v3) */
+  /* neutres, zone claire */
   --bg:#fff; --mist:#f3f5f7; --line:#e3e7eb; --text:#14181c; --muted:#5c6670;
-  /* pastels des tuiles (R1 v3) */
+  /* pastels des tuiles */
   --sand:#fbf1e0; --mint:#e4f5ea; --lilac:#efe8fb; --rose:#fdeaea; --aqua:#e2f6f8; --straw:#f6f3e2;
   /* zone sombre = fond de l'application Calaos */
   --night:#171717; --night-2:#222426; --night-line:#34383b; --night-text:#e9edf0; --night-muted:#aab2b9;
   --cyan:#3ab4d7; --yellow:#ffda5a;
-  /* accent en zone claire (D4-B, cyan assombri) */
+  /* accent en zone claire */
   --acc:#0a7596; --acc-hover:#085e78; --acc-deco:#3ab4d7; --acc-soft:#e2f6f8; --on-acc:#fff;
   --mark:#ffda5a;
-  /* police (D3) */
+  /* police */
   --font:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;
   --pad:clamp(20px,5vw,64px); --w:1200px; --r:22px; --nav-h:68px;
 }
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 12px)}
 body{margin:0;background:var(--bg);color:var(--text);font:400 17px/1.65 var(--font);-webkit-font-smoothing:antialiased}
-img,svg{display:block;max-width:100%}
+img,svg{display:block;max-width:100%}img{height:auto}
 a{color:inherit}
 h1,h2,h3{font-weight:800;letter-spacing:-.025em;line-height:1.12;margin:0}
 h2{font-size:clamp(30px,4.2vw,46px)}
@@ -38,6 +38,7 @@ section{padding:clamp(64px,9vw,112px) 0}
 
 /* boutons */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:13px 22px;border-radius:999px;font:700 15px/1.2 var(--font);text-decoration:none;border:1.5px solid transparent;cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
+.btn[hidden]{display:none}
 .btn .ic{width:18px;height:18px}
 .btn-p{background:var(--acc);color:var(--on-acc)}
 .btn-p:hover{background:var(--acc-hover)}
@@ -48,7 +49,7 @@ section{padding:clamp(64px,9vw,112px) 0}
 .dark .btn-s{background:transparent;border-color:#ffffff55;color:#fff}
 .dark .btn-s:hover{border-color:#fff}
 
-/* navigation : barre sombre en haut, îlot pleine largeur détaché après défilement (J2).
+/* navigation : barre sombre en haut, îlot pleine largeur détaché après défilement.
    Burger sous 1300 px : le menu complet (libellés réels) tient dans l’îlot à partir de 1300 px. */
 .nav{position:sticky;top:0;z-index:50;background:var(--night);color:#fff;border-bottom:1px solid var(--night-line);transition:background .25s,border-color .25s}
 .nav .wrap{display:flex;align-items:center;gap:20px;height:var(--nav-h);max-width:1480px;min-width:0;padding:0 clamp(16px,3vw,28px);margin:0 auto;border:1px solid transparent;border-radius:0;transition:max-width .3s,transform .3s,height .3s,border-radius .3s,background .3s,box-shadow .3s,padding .3s}
@@ -78,7 +79,7 @@ section{padding:clamp(64px,9vw,112px) 0}
 @media(min-width:960px){.nav.sc .wrap{width:calc(100% - 24px);transform:translateY(8px);padding:0 14px 0 20px}.nav.sc .logo{width:104px}.nav.sc .drawer{margin:6px 12px 0}}
 @media(prefers-reduced-motion:reduce){.nav,.nav .wrap,.logo{transition:none!important}}
 
-/* hero sombre (D1) */
+/* hero sombre */
 .dark{background:var(--night);color:var(--night-text)}
 .hero{position:relative;isolation:isolate;overflow:hidden;padding:0;min-height:min(86svh,780px);display:flex;align-items:center}
 .hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
@@ -185,12 +186,12 @@ footer li a:hover{text-decoration:underline}
 .fine{margin-top:32px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
 
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
-/* D5-B : capture à cheval sur la frontière sombre/claire */
+/* capture à cheval sur la frontière sombre/claire */
 .d5b{background:linear-gradient(var(--night) 0 50%,#fff 50%);padding:0 var(--pad)}
 .d5b figure{margin:0 auto;max-width:860px}
 .d5b img{display:block;width:100%;height:auto;border-radius:18px;border:8px solid #0d0e0f;box-shadow:0 40px 80px -30px #000a,0 0 0 1px #ffffff1f}
 .d5b figcaption{text-align:center;font-size:13px;color:var(--muted);padding:14px 0 0}
-/* D6-B : rangées éditoriales et interfaces */
+/* rangées éditoriales et interfaces */
 .rows{display:grid;gap:clamp(40px,6vw,80px)}
 .row{display:grid;gap:28px;align-items:center}
 @media(min-width:860px){.row{grid-template-columns:1.25fr 1fr;gap:56px}.row.rev .ph{order:2}}
@@ -225,8 +226,8 @@ footer li a:hover{text-decoration:underline}
 .totop .ic{width:22px;height:22px}
 html:not(.js) .totop,body:has(.nav.open) .totop{display:none}
 @media(prefers-reduced-motion:reduce){.totop,.totop.show{transition:none;transform:none}}
-@media(max-width:1299px){html:not(.js) .burger{display:none}html:not(.js) .drawer{display:flex;flex-direction:column;position:static;margin:0;border-radius:0}}
-html:not(.js) .tabs{display:none}html:not(.js) .pane[hidden]{display:block}
+@media(max-width:1299px){html:not(.js) .nav{position:static}html:not(.js) .burger{display:none}html:not(.js) .drawer{display:flex;flex-direction:column;position:static;margin:0;border-radius:0}}
+html:not(.js) .tabs{display:none}html:not(.js) .pane[hidden]{display:block}html:not(.js) .stage .pane{display:contents}
 .mark{background-repeat:no-repeat;background-position:0 0;}.js .mark{background-size:0% 100%}.mark{transition:background-size 1.3s cubic-bezier(.65,0,.25,1) var(--dl,0s)}
 .js .mark.on{background-size:100% 100%}
 .d5b{background:radial-gradient(ellipse 70% 60% at 50% 55%,rgba(58,180,215,.28),transparent 70%),linear-gradient(var(--night) 0 50%,#fff 50%)}
