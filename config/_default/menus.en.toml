@@ -1,11 +1,11 @@
 [[main]]
 name = "How it works"
-url = "#comment"
+url = "#how-it-works"
 weight = 10
 
 [[main]]
 name = "Day to day"
-url = "#quotidien"
+url = "#day-to-day"
 weight = 20
 
 [[main]]
@@ -15,12 +15,12 @@ weight = 30
 
 [[main]]
 name = "Compatibility"
-url = "#compat"
+url = "#compatibility"
 weight = 40
 
 [[main]]
 name = "Community"
-url = "#communaute"
+url = "#community"
 weight = 50
 
 [[main]]
@@ -44,12 +44,12 @@ button = true
 
 [[product]]
 name = "How it works"
-url = "#comment"
+url = "#how-it-works"
 weight = 10
 
 [[product]]
 name = "Day to day"
-url = "#quotidien"
+url = "#day-to-day"
 weight = 20
 
 [[product]]
@@ -59,7 +59,7 @@ weight = 30
 
 [[product]]
 name = "Compatibility"
-url = "#compat"
+url = "#compatibility"
 weight = 40
 
 [[resources]]

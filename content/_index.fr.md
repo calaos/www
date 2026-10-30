@@ -36,6 +36,7 @@ kiosk:
   caption: "L’écran d’accueil Calaos sur un écran tactile."
 
 how:
+  id: "comment"
   eyebrow: "Comment ça marche"
   title: "Trois étapes, **une seule maison**."
   text: "Du matériel que vous avez déjà à une interface que toute la famille utilise."
@@ -51,6 +52,7 @@ how:
       note: "Aussi par texte ou à la voix, via MCP"
 
 daily:
+  id: "quotidien"
   eyebrow: "Au quotidien"
   title: "Ce que vous **pilotez** déjà, simplement."
   rows:
@@ -121,6 +123,7 @@ daily:
   note: "Photos d’ambiance."
 
 interfaces:
+  id: "interfaces"
   eyebrow: "Interfaces"
   title: "Une maison, **plusieurs façons** de la piloter."
   tabs:
@@ -158,6 +161,7 @@ interfaces:
       text: "« Éteins tout en bas et mets 19 degrés dans la chambre. » Un assistant IA branché sur votre maison."
 
 compat:
+  id: "compat"
   eyebrow: "Compatibilité"
   title: "Votre matériel, **tel quel**."
   text: "Quelques exemples parmi les protocoles et appareils pris en charge. La liste complète est dans la documentation."
@@ -197,6 +201,7 @@ compat:
         - "MCP"
 
 why:
+  id: "pourquoi"
   eyebrow: "Pourquoi Calaos"
   title: "Une maison qui vous **appartient**."
   items:
@@ -217,6 +222,7 @@ why:
       text: "Des utilisateurs et des contributeurs qui s’entraident sur Discord et GitHub."
 
 start:
+  id: "demarrer"
   eyebrow: "Démarrer"
   title: "Un mini PC, une clé USB, **un après-midi**."
   text: "Calaos tourne sur un mini PC x86_64. Vous préparez une clé, vous installez, vous décrivez votre maison."
@@ -237,6 +243,7 @@ start:
       text: "doc.calaos.fr, pas à pas."
 
 community:
+  id: "communaute"
   eyebrow: "Communauté"
   title: "Un projet **ouvert**."
   cards:
@@ -254,6 +261,7 @@ community:
         url: "https://github.com/calaos"
 
 support:
+  id: "don"
   title: "Soutenir Calaos"
   text: "Le projet a besoin de votre temps comme de votre argent. Il n’y a pas de montant minimum : vous donnez ce que vous souhaitez."
   time:

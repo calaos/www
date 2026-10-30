@@ -1,7 +1,7 @@
 ---
 title: "Calaos, open source home automation"
 description: "Calaos is open source home automation under the GPLv3 that runs entirely in your home: server, mobile app, web interface and touchscreens."
-skip_to: comment
+skip_to: how-it-works
 
 hero:
   title: "Open source home automation, **in your home.**"
@@ -16,7 +16,7 @@ hero:
       url: "https://doc.calaos.fr/en/getting_started/"
       icon: arrow
     - label: "Learn more"
-      url: "#comment"
+      url: "#how-it-works"
       icon: down
   trust:
     - icon: lock
@@ -36,6 +36,7 @@ kiosk:
   caption: "The Calaos home screen on a touchscreen."
 
 how:
+  id: "how-it-works"
   eyebrow: "How it works"
   title: "Three steps, **one home**."
   text: "From the hardware you already own to an interface the whole family uses."
@@ -51,6 +52,7 @@ how:
       note: "Also by text or voice, through MCP"
 
 daily:
+  id: "day-to-day"
   eyebrow: "Day to day"
   title: "What you already **control**, made simple."
   rows:
@@ -121,6 +123,7 @@ daily:
   note: "Mood photos."
 
 interfaces:
+  id: "interfaces"
   eyebrow: "Interfaces"
   title: "One home, **many ways** to control it."
   tabs:
@@ -158,6 +161,7 @@ interfaces:
       text: "“Turn off everything downstairs and set the bedroom to 19 degrees.” An AI assistant connected to your home."
 
 compat:
+  id: "compatibility"
   eyebrow: "Compatibility"
   title: "Your hardware, **as it is**."
   text: "A few examples of the supported protocols and devices. The full list is in the documentation."
@@ -197,6 +201,7 @@ compat:
         - "MCP"
 
 why:
+  id: "why-calaos"
   eyebrow: "Why Calaos"
   title: "A home that **belongs to you**."
   items:
@@ -217,6 +222,7 @@ why:
       text: "Users and contributors helping each other on Discord and GitHub."
 
 start:
+  id: "getting-started"
   eyebrow: "Get started"
   title: "A mini PC, a USB stick, **one afternoon**."
   text: "Calaos runs on an x86_64 mini PC. Prepare a USB stick, install, then describe your home."
@@ -237,6 +243,7 @@ start:
       text: "doc.calaos.fr, step by step."
 
 community:
+  id: "community"
   eyebrow: "Community"
   title: "An **open** project."
   cards:
@@ -254,6 +261,7 @@ community:
         url: "https://github.com/calaos"
 
 support:
+  id: "support"
   title: "Support Calaos"
   text: "The project needs your time as well as your money. There is no minimum amount: give what you like."
   time:
