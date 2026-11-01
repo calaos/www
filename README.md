@@ -32,7 +32,7 @@ Everything a visitor can read is outside the template. Edit one file and rebuild
 | PayPal link and Bitcoin address | `data/donate.yaml` |
 | Contact address, Umami script and id | `config/_default/params.toml` |
 
-In the content file, `**text**` highlights a part of a heading. Each section is a block in the front matter, in page order. Each block has an `id:` (required, the build fails without it): it is the anchor targeted by the menu, the hero button and `skip_to`, so changing it means updating those, and it is not translated lightly since links to the page depend on it. Blocks of a list (`rows`, `tabs`, `cards`, `items`…) can be added, removed or reordered freely.
+In the content file, `**text**` highlights a part of a heading. Each section is a block in the front matter, in page order. Every block except `hero` and `kiosk` has an `id:` (required, the build fails without it): it is the anchor targeted by the menu, the hero button and `skip_to`, so changing it means updating those, and it is not translated lightly since links to the page depend on it. Blocks of a list (`rows`, `tabs`, `cards`, `items`…) can be added, removed or reordered freely.
 
 Images go in `static/media/` and are referenced as `media/name.jpg`, with their size and, when they carry meaning, an `alt` text.
 
@@ -48,3 +48,10 @@ Build
 The site is written to `public/`, which is not committed. CSS and JS come from `assets/` and are minified and fingerprinted at build time. Fonts and images are served as is from `static/`.
 
 Every push and pull request to `master` runs this same build (`.github/workflows/build.yml`). It does not deploy.
+
+Deploy
+---
+
+Deployment is manual only. Run the `Deploy` workflow (`.github/workflows/deploy.yml`) from the Actions tab, on `master`: the job refuses any other ref. It builds the site with `hugo --minify`, packs `public/` into a `tar.zst` archive and POSTs it (multipart, fields `key` and `file`) to the URL set in `DEPLOY_URL` at the top of the file. Nothing deploys on push or pull request.
+
+The upload key is the repository secret `WWW_UPLOAD_KEY`. Any non-2xx answer from the server fails the job.
