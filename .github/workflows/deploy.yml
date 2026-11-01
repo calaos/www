@@ -1,7 +1,8 @@
 name: Deploy
 
-# Manual only, never on push or pull request. The ref guard below keeps a
-# dispatch from another branch from publishing unreviewed content.
+# Manual only, never on push or pull request. The job `if` and the first step
+# only guard against a dispatch from the wrong branch by mistake; the real
+# boundary is the branch rule on the `deploy` environment, which holds the key.
 on:
   workflow_dispatch:
 
@@ -12,11 +13,20 @@ env:
   # Deduced from doc-website's deploy step; correct it if the endpoint differs.
   DEPLOY_URL: https://www-upload.calaos.fr/deploy
 
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
 jobs:
   deploy:
+    # `==` ignores case in expressions; the first step compares exactly.
     if: github.ref == 'refs/heads/master'
+    environment: deploy
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
+      - name: Check the ref
+        run: '[ "$GITHUB_REF" = refs/heads/master ] || { echo "::error::deploy runs on refs/heads/master only"; exit 1; }'
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: peaceiris/actions-hugo@2752ce1d29631191ea3f27c23495fa06139a5b78 # v3.2.1
         with:
@@ -28,10 +38,15 @@ jobs:
       - name: Upload
         env:
           WWW_UPLOAD_KEY: ${{ secrets.WWW_UPLOAD_KEY }}
-        # --fail-with-body: a 4xx/5xx makes curl, hence the job, fail and prints
-        # the answer. The key goes to curl on stdin (printf is a builtin), so it
-        # is not in any argv; the log masks the secret.
+        # The key goes to curl on stdin (`key=<-`): not in argv, and no `@`, `<`,
+        # `;`, `"` or `\` in it is reinterpreted. Only the final status is read, with
+        # no --location: a 3xx would otherwise pass (curl exits 0) or resend the key.
+        # The answer body stays out of the public log.
         run: |
-          printf 'form = "key=%s"\n' "$WWW_UPLOAD_KEY" \
-            | curl --silent --show-error --fail-with-body --proto '=https' --tlsv1.2 \
-                --config - --form 'file=@archive.tar.zst' "$DEPLOY_URL"
+          : "${WWW_UPLOAD_KEY:?missing upload key}"
+          code=$(printf '%s' "$WWW_UPLOAD_KEY" \
+            | curl --silent --show-error --proto '=https' --tlsv1.2 \
+                --connect-timeout 30 --max-time 300 \
+                --output /dev/null --write-out '%{http_code}' \
+                --form 'key=<-' --form 'file=@archive.tar.zst' "$DEPLOY_URL")
+          case "$code" in 2??) ;; *) echo "::error::upload answered HTTP $code"; exit 1 ;; esac

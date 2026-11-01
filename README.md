@@ -52,6 +52,6 @@ Every push and pull request to `master` runs this same build (`.github/workflows
 Deploy
 ---
 
-Deployment is manual only. Run the `Deploy` workflow (`.github/workflows/deploy.yml`) from the Actions tab, on `master`: the job refuses any other ref. It builds the site with `hugo --minify`, packs `public/` into a `tar.zst` archive and POSTs it (multipart, fields `key` and `file`) to the URL set in `DEPLOY_URL` at the top of the file. Nothing deploys on push or pull request.
+Deployment is manual only. Run the `Deploy` workflow (`.github/workflows/deploy.yml`) from the Actions tab, on `master`: the job is skipped on any other ref. That check only prevents a mistake; the boundary is the branch rule of the `deploy` environment (Settings, Environments, Deployment branches: `master` only, admin bypass off). It builds the site with `hugo --minify`, packs `public/` into a `tar.zst` archive and POSTs it (multipart, fields `key` and `file`) to the URL set in `DEPLOY_URL` at the top of the file. Nothing deploys on push or pull request.
 
-The upload key is the repository secret `WWW_UPLOAD_KEY`. Any non-2xx answer from the server fails the job.
+The upload key is the secret `WWW_UPLOAD_KEY` of the `deploy` environment, which the job references. Any answer other than 2xx (redirects included, none is followed) fails the job; the answer body is not printed.
