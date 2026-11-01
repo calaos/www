@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="{{ .Lang }}">
+{{ partial "head.html" . }}
+<body>
+<a class="skip" href="#{{ .Params.skip_to | default "content" }}">{{ T "skip_to_content" }}</a>
+{{ partial "sprite.html" . }}
+{{ partial "header.html" . }}
+{{ block "main" . }}{{ end }}
+{{ partial "footer.html" . }}
+<button type="button" class="totop" aria-label="{{ T "to_top" }}"><svg class="ic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+{{ with resources.Get "js/calaos.js" | minify | fingerprint }}<script src="{{ .RelPermalink }}"></script>{{ end }}
+</body></html>

@@ -1,0 +1,4 @@
+{{- /* An in-page anchor of the home page, reachable from any other page. */ -}}
+{{- $url := .url -}}
+{{- if and (hasPrefix $url "#") (not .page.IsHome) }}{{ $url = print site.Home.RelPermalink $url }}{{ end -}}
+{{- return $url -}}

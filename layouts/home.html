@@ -1,0 +1,11 @@
+{{ define "main" }}
+{{ partial "home/hero.html" .Params.hero }}
+{{ partial "home/kiosk.html" .Params.kiosk }}
+{{ partial "home/how.html" .Params.how }}
+{{ partial "home/daily.html" .Params.daily }}
+{{ partial "home/interfaces.html" .Params.interfaces }}
+{{ partial "home/compat.html" .Params.compat }}
+{{ partial "home/why.html" .Params.why }}
+{{ partial "home/start.html" .Params.start }}
+{{ partial "home/community.html" (dict "community" .Params.community "support" .Params.support) }}
+{{ end }}

@@ -1,0 +1,5 @@
+email = "team@calaos.fr"
+
+[umami]
+script = "https://cloud.umami.is/script.js"
+id = "8e40479d-9533-4217-a2a6-f3387e04aca1"

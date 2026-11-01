@@ -1,0 +1,7 @@
+<section id="{{ partial "section-id.html" (dict "name" "interfaces" "id" .id) }}" style="padding-top:0"><div class="wrap">{{ partial "section-head.html" . }}
+<div class="tabs" role="tablist" aria-label="{{ .eyebrow }}">{{ range $i, $t := .tabs }}<button type="button" role="tab" id="it{{ $i }}" aria-controls="ip{{ $i }}" aria-selected="{{ eq $i 0 }}" tabindex="{{ if $i }}-1{{ else }}0{{ end }}">{{ .label }}</button>{{ end }}</div><div class="stage">
+{{- range $i, $t := .tabs -}}
+<div class="pane" role="tabpanel" id="ip{{ $i }}" aria-labelledby="it{{ $i }}"{{ if $i }} hidden{{ end }}><div class="shot">{{ partial "image.html" (dict "img" .image "lazy" (gt $i 0)) }}</div><div><h3>{{ .label }}</h3><p>{{ .text }}</p></div></div>
+{{- end -}}
+</div>
+<ul class="ilist">{{ range .extras }}<li>{{ partial "icon.html" .icon }}<h3>{{ .title }}</h3><p>{{ .text }}</p></li>{{ end }}</ul></div></section>

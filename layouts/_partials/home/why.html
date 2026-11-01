@@ -1,0 +1,1 @@
+<section id="{{ partial "section-id.html" (dict "name" "why" "id" .id) }}"><div class="wrap">{{ partial "section-head.html" . }}<ul class="why">{{ range .items }}<li>{{ partial "icon.html" .icon }}<h3>{{ .title }}</h3><p>{{ .text }}</p></li>{{ end }}</ul></div></section>

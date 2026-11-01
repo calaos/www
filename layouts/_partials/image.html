@@ -1,0 +1,1 @@
+<img{{ with .class }} class="{{ . }}"{{ end }} src="{{ .img.src | relURL }}" alt="{{ .img.alt }}" width="{{ .img.width }}" height="{{ .img.height }}"{{ if .lazy }} loading="lazy"{{ end }}>
