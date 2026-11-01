@@ -92,7 +92,6 @@ section{padding:clamp(64px,9vw,112px) 0}
 .trust{display:flex;flex-wrap:wrap;gap:8px 22px;margin:34px 0 0;padding:0;list-style:none;font-size:14.5px;font-weight:600;color:var(--night-text)}
 .trust li{display:flex;align-items:center;gap:8px}
 .trust .ic{width:18px;height:18px;color:var(--cyan)}
-.ph-note{position:absolute;left:max(var(--pad),calc((100% - var(--w))/2 + var(--pad)));bottom:12px;font-size:12px;color:var(--night-muted)}
 
 /* Comment ça marche */
 .flow{display:grid;gap:20px;counter-reset:s;grid-template-columns:1fr}
@@ -264,4 +263,4 @@ footer .logo{color:#080808}footer .logo svg>path{fill:url(#lg-wl)}footer .logo g
 .mo .d5b figure{perspective:1200px}
 .mo .d5b img{transform:rotateX(var(--ty,0deg)) rotateY(var(--tx,0deg));transition:transform .25s ease-out;will-change:transform}
 .mo .why li,.mo .flow li,.mo .row .ph{background-image:radial-gradient(260px circle at var(--mx,-999px) var(--my,-999px),rgba(58,180,215,.16),transparent 70%)}
-@media(max-width:760px){.ph-note,.d5b figcaption,.row .tag{display:none}.eyebrow,.note,footer h4{font-size:14px}.mo .rv{transform:none;transition:opacity .4s ease}}
+@media(max-width:760px){.d5b figcaption,.row .tag{display:none}.eyebrow,.note,footer h4{font-size:14px}.mo .rv{transform:none;transition:opacity .4s ease}}

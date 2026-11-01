@@ -25,7 +25,6 @@ hero:
       text: "No subscription"
     - icon: code
       text: "Open source, GPLv3"
-  photo_note: "Placeholder photo"
 
 kiosk:
   image:
