@@ -2,5 +2,4 @@
 <div class="wrap"><h1>{{ partial "emphasis.html" (dict "text" .title "class" "y") }}</h1>
 <p class="lead">{{ .lead }}</p>
 <div class="cta">{{ range $i, $b := .buttons }}<a class="btn {{ if $i }}btn-s{{ else }}btn-p{{ end }}" href="{{ .url }}">{{ .label }} {{ partial "icon.html" .icon }}</a>{{ end }}</div>
-<ul class="trust">{{ range .trust }}<li>{{ partial "icon.html" .icon }}{{ .text }}</li>{{ end }}</ul></div>
-<span class="ph-note">{{ .photo_note }}</span></section>
+<ul class="trust">{{ range .trust }}<li>{{ partial "icon.html" .icon }}{{ .text }}</li>{{ end }}</ul></div></section>

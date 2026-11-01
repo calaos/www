@@ -25,7 +25,6 @@ hero:
       text: "Sans abonnement"
     - icon: code
       text: "Logiciel libre GPLv3"
-  photo_note: "Photo provisoire"
 
 kiosk:
   image:
