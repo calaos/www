@@ -29,8 +29,8 @@ hero:
 
 kiosk:
   image:
-    src: media/kiosk-home.png
-    alt: "Calaos home screen on a touchscreen"
+    src: media/kiosk-home-en.webp
+    alt: "Calaos Home screen on a touchscreen: the list of rooms of the house"
     width: 1024
     height: 768
   caption: "The Calaos home screen on a touchscreen."
@@ -69,10 +69,10 @@ daily:
         width: 760
         height: 1140
       screen:
-        src: media/mobile-home.png
-        alt: "Calaos on a phone"
-        width: 390
-        height: 844
+        src: media/mobile-lights-en.webp
+        alt: "Calaos mobile app: the living room page with its shutters and lights"
+        width: 340
+        height: 736
     - title: "Heating"
       icon: thermo
       text: "A setpoint per room, weekly schedules, the temperature curve."
@@ -86,10 +86,10 @@ daily:
         width: 760
         height: 507
       screen:
-        src: media/mobile-sheet-thermostat.png
-        alt: "Calaos on a phone"
-        width: 390
-        height: 844
+        src: media/mobile-heating-en.webp
+        alt: "Calaos mobile app: setting the heating setpoint"
+        width: 480
+        height: 1039
     - title: "Security"
       icon: cam
       text: "Live cameras, sensors, alarm: the footage stays in your home."
@@ -103,10 +103,10 @@ daily:
         width: 760
         height: 507
       screen:
-        src: media/mobile-rooms.png
-        alt: "Calaos on a phone"
-        width: 390
-        height: 844
+        src: media/mobile-rooms-en.webp
+        alt: "Calaos mobile app: the list of rooms"
+        width: 340
+        height: 736
   also:
     - title: "Shutters"
       icon: blind
@@ -130,31 +130,31 @@ interfaces:
     - label: "Mobile"
       text: "The mobile app connects to your Calaos server with its address, your username and your password. It gives you access to rooms and their devices: lights (dimming and color), shutters, outlets, sensors, climate control. You can run a scenario, watch your cameras and control audio players. The display follows what happens in the house live, and a push notification opens the event it is about. The interface is available in French, English and German."
       image:
-        src: media/mobile-sheet-thermostat.png
-        alt: "Calaos on a phone"
-        width: 390
-        height: 844
+        src: media/mobile-favorites-en.webp
+        alt: "Calaos mobile app: favorites with scenarios, lights, shutters and heating"
+        width: 480
+        height: 1039
     - label: "Wall panel"
       text: "The wall panel is a touchscreen mounted on the wall, running Calaos firmware on an ESP32-P4. It connects over Ethernet or Wi-Fi, finds the server on your network and pairs with it using a short code. The server sends it its pages: light switches, temperature, scenarios, shutters, climate, clock and screensaver. A 720 × 720 model also includes two relays. The firmware updates from the server and rolls back to the previous version if an update fails."
       image:
-        src: media/rui-large-2x2.png
-        alt: "Wall panel"
+        src: media/wall-panel.webp
+        alt: "Calaos wall panel: control tiles (lights, shutters, temperature, scenario)"
         width: 720
         height: 720
     - label: "Touchscreen"
       text: "Calaos Home also comes in a full-screen version for a fixed touchscreen running Calaos OS. It offers the same features as the mobile app: rooms, scenarios, cameras and audio players, with an on-screen keyboard. You can place movable widgets on it, such as a clock, a note or the weather. Network, language and system updates are all set from the screen itself."
       image:
-        src: media/kiosk-home.png
-        alt: "Touchscreen"
+        src: media/kiosk-room-en.webp
+        alt: "Calaos Home on a touchscreen: the living room page with its lights, shutters and scenarios"
         width: 1024
         height: 768
     - label: "Browser"
       text: "The web interface is served by the Calaos server itself: just open its address in a browser, with nothing to install. It shows rooms and their devices, scenarios, cameras and audio players. The display updates live, without reloading the page."
       image:
-        src: media/web-room-list.png
-        alt: "Calaos in a browser"
-        width: 1280
-        height: 900
+        src: media/web-home.webp
+        alt: "Calaos web interface in a browser: the list of rooms"
+        width: 1216
+        height: 760
   extras:
     - title: "Assistant, through MCP"
       icon: ai

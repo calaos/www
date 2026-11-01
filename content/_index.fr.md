@@ -29,8 +29,8 @@ hero:
 
 kiosk:
   image:
-    src: media/kiosk-home.png
-    alt: "Écran d’accueil de Calaos sur un écran tactile"
+    src: media/kiosk-home-fr.webp
+    alt: "Écran d’accueil Calaos Home sur un écran tactile : la liste des pièces de la maison"
     width: 1024
     height: 768
   caption: "L’écran d’accueil Calaos sur un écran tactile."
@@ -69,10 +69,10 @@ daily:
         width: 760
         height: 1140
       screen:
-        src: media/mobile-home.png
-        alt: "Calaos sur mobile"
-        width: 390
-        height: 844
+        src: media/mobile-lights-fr.webp
+        alt: "Application Calaos sur mobile : la page du salon avec ses volets et ses lumières"
+        width: 340
+        height: 736
     - title: "Chauffage"
       icon: thermo
       text: "Une consigne par pièce, des programmes horaires, la courbe de température."
@@ -86,10 +86,10 @@ daily:
         width: 760
         height: 507
       screen:
-        src: media/mobile-sheet-thermostat.png
-        alt: "Calaos sur mobile"
-        width: 390
-        height: 844
+        src: media/mobile-heating-fr.webp
+        alt: "Application Calaos sur mobile : réglage de la consigne de chauffage"
+        width: 480
+        height: 1039
     - title: "Sécurité"
       icon: cam
       text: "Caméras en direct, détecteurs, alarme : les images restent chez vous."
@@ -103,10 +103,10 @@ daily:
         width: 760
         height: 507
       screen:
-        src: media/mobile-rooms.png
-        alt: "Calaos sur mobile"
-        width: 390
-        height: 844
+        src: media/mobile-rooms-fr.webp
+        alt: "Application Calaos sur mobile : la liste des pièces"
+        width: 340
+        height: 736
   also:
     - title: "Volets"
       icon: blind
@@ -130,31 +130,31 @@ interfaces:
     - label: "Mobile"
       text: "L’application mobile se connecte à votre serveur Calaos avec son adresse, votre identifiant et votre mot de passe. Elle donne accès aux pièces et à leurs équipements : lumières (variation et couleur), volets, prises, capteurs, régulation du climat. Vous lancez un scénario, regardez vos caméras et commandez les lecteurs audio. L’affichage suit en direct ce qui se passe dans la maison, et une notification push ouvre l’événement concerné. L’interface existe en français, en anglais et en allemand."
       image:
-        src: media/mobile-sheet-thermostat.png
-        alt: "Calaos sur mobile"
-        width: 390
-        height: 844
+        src: media/mobile-favorites-fr.webp
+        alt: "Application Calaos sur mobile : les favoris avec scénarios, lumières, volets et chauffage"
+        width: 480
+        height: 1039
     - label: "Panneau mural"
       text: "Le panneau mural est un écran tactile fixé au mur, qui fonctionne avec un firmware Calaos sur ESP32-P4. Il se branche en Ethernet ou en Wi-Fi, trouve le serveur sur le réseau et s’y associe avec un code court. Le serveur lui envoie ses pages : interrupteurs de lumière, température, scénarios, volets, climat, horloge et écran de veille. Un modèle de 720 × 720 intègre aussi deux relais. Le firmware se met à jour depuis le serveur, avec retour à la version précédente en cas d’échec."
       image:
-        src: media/rui-large-2x2.png
-        alt: "Panneau mural"
+        src: media/wall-panel.webp
+        alt: "Panneau mural Calaos : tuiles de commande (lumières, volets, température, scénario)"
         width: 720
         height: 720
     - label: "Écran tactile"
       text: "Calaos Home existe aussi en version plein écran, pour un écran tactile fixe qui fait tourner Calaos OS. Elle reprend les fonctions de l’application mobile : pièces, scénarios, caméras et lecteurs audio, avec un clavier virtuel à l’écran. Vous pouvez y poser des widgets déplaçables, comme une horloge, une note ou la météo. Le réseau, la langue et les mises à jour du système se règlent depuis l’écran lui-même."
       image:
-        src: media/kiosk-home.png
-        alt: "Écran tactile"
+        src: media/kiosk-room-fr.webp
+        alt: "Calaos Home sur écran tactile : la page du salon avec ses lumières, volets et scénarios"
         width: 1024
         height: 768
     - label: "Navigateur"
       text: "L’interface web est servie par le serveur Calaos lui-même : il suffit d’ouvrir son adresse dans un navigateur, sans rien installer. Elle présente les pièces et leurs équipements, les scénarios, les caméras et les lecteurs audio. L’affichage se met à jour en direct, sans recharger la page."
       image:
-        src: media/web-room-list.png
-        alt: "Calaos dans un navigateur"
-        width: 1280
-        height: 900
+        src: media/web-home.webp
+        alt: "Interface web Calaos dans un navigateur : la liste des pièces"
+        width: 1216
+        height: 760
   extras:
     - title: "Assistant, via MCP"
       icon: ai
