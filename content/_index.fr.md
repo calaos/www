@@ -30,7 +30,7 @@ hero:
 kiosk:
   image:
     src: media/kiosk-home-fr.webp
-    alt: "Écran d’accueil Calaos Home : la liste des pièces de la maison"
+    alt: "Écran d’accueil Calaos Home sur un écran tactile : la liste des pièces de la maison"
     width: 1024
     height: 768
   caption: "L’écran d’accueil Calaos sur un écran tactile."
@@ -130,15 +130,15 @@ interfaces:
     - label: "Mobile"
       text: "L’application mobile se connecte à votre serveur Calaos avec son adresse, votre identifiant et votre mot de passe. Elle donne accès aux pièces et à leurs équipements : lumières (variation et couleur), volets, prises, capteurs, régulation du climat. Vous lancez un scénario, regardez vos caméras et commandez les lecteurs audio. L’affichage suit en direct ce qui se passe dans la maison, et une notification push ouvre l’événement concerné. L’interface existe en français, en anglais et en allemand."
       image:
-        src: media/mobile-heating-fr.webp
-        alt: "Application Calaos sur mobile : réglage de la consigne de chauffage"
+        src: media/mobile-favorites-fr.webp
+        alt: "Application Calaos sur mobile : les favoris avec scénarios, lumières, volets et chauffage"
         width: 480
         height: 1039
     - label: "Panneau mural"
       text: "Le panneau mural est un écran tactile fixé au mur, qui fonctionne avec un firmware Calaos sur ESP32-P4. Il se branche en Ethernet ou en Wi-Fi, trouve le serveur sur le réseau et s’y associe avec un code court. Le serveur lui envoie ses pages : interrupteurs de lumière, température, scénarios, volets, climat, horloge et écran de veille. Un modèle de 720 × 720 intègre aussi deux relais. Le firmware se met à jour depuis le serveur, avec retour à la version précédente en cas d’échec."
       image:
         src: media/wall-panel.webp
-        alt: "Panneau mural Calaos : tuiles de commande du salon (lumières, volets, température, scénario)"
+        alt: "Panneau mural Calaos : tuiles de commande (lumières, volets, température, scénario)"
         width: 720
         height: 720
     - label: "Écran tactile"
@@ -153,8 +153,8 @@ interfaces:
       image:
         src: media/web-home.webp
         alt: "Interface web Calaos dans un navigateur : la liste des pièces"
-        width: 1600
-        height: 1000
+        width: 1216
+        height: 760
   extras:
     - title: "Assistant, via MCP"
       icon: ai

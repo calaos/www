@@ -87,7 +87,7 @@ daily:
         height: 507
       screen:
         src: media/mobile-heating-en.webp
-        alt: "Calaos mobile app: setting the heating target"
+        alt: "Calaos mobile app: setting the heating setpoint"
         width: 480
         height: 1039
     - title: "Security"
@@ -130,15 +130,15 @@ interfaces:
     - label: "Mobile"
       text: "The mobile app connects to your Calaos server with its address, your username and your password. It gives you access to rooms and their devices: lights (dimming and color), shutters, outlets, sensors, climate control. You can run a scenario, watch your cameras and control audio players. The display follows what happens in the house live, and a push notification opens the event it is about. The interface is available in French, English and German."
       image:
-        src: media/mobile-heating-en.webp
-        alt: "Calaos mobile app: setting the heating target"
+        src: media/mobile-favorites-en.webp
+        alt: "Calaos mobile app: favorites with scenarios, lights, shutters and heating"
         width: 480
         height: 1039
     - label: "Wall panel"
       text: "The wall panel is a touchscreen mounted on the wall, running Calaos firmware on an ESP32-P4. It connects over Ethernet or Wi-Fi, finds the server on your network and pairs with it using a short code. The server sends it its pages: light switches, temperature, scenarios, shutters, climate, clock and screensaver. A 720 × 720 model also includes two relays. The firmware updates from the server and rolls back to the previous version if an update fails."
       image:
         src: media/wall-panel.webp
-        alt: "Calaos wall panel: living room control tiles (lights, shutters, temperature, scenario)"
+        alt: "Calaos wall panel: control tiles (lights, shutters, temperature, scenario)"
         width: 720
         height: 720
     - label: "Touchscreen"
@@ -153,8 +153,8 @@ interfaces:
       image:
         src: media/web-home.webp
         alt: "Calaos web interface in a browser: the list of rooms"
-        width: 1600
-        height: 1000
+        width: 1216
+        height: 760
   extras:
     - title: "Assistant, through MCP"
       icon: ai
