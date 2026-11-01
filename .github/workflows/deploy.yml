@@ -11,7 +11,7 @@ permissions:
 
 env:
   # Deduced from doc-website's deploy step; correct it if the endpoint differs.
-  DEPLOY_URL: https://www-upload.calaos.fr/deploy
+  DEPLOY_URL: https://www-deploy.calaos.fr/deploy
 
 concurrency:
   group: deploy
