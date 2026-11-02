@@ -267,7 +267,7 @@ footer .logo{color:#080808}footer .logo svg>path{fill:url(#lg-wl)}footer .logo g
 
 /* actualités : bandeau sombre dans le prolongement du menu, corps clair */
 .phead{padding:clamp(40px,7vw,80px) 0 clamp(36px,6vw,64px)}
-.phead h1{font-size:clamp(34px,5vw,56px);letter-spacing:-.03em;max-width:20em}
+.phead h1{font-size:clamp(34px,5vw,56px);letter-spacing:-.03em;color:#fff;max-width:20em}
 .phead .lead{max-width:40em;margin-top:16px;font-size:clamp(17px,1.6vw,19px)}
 .phead .date{display:block;margin-top:16px;color:var(--night-muted);font-weight:600}
 .phead a{color:var(--night-text);text-underline-offset:4px}
