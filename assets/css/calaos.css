@@ -336,3 +336,11 @@ footer .logo{color:#080808}footer .logo svg>path{fill:url(#lg-wl)}footer .logo g
 .giscus{margin-top:8px}
 html:not(.js) #comments-load{display:none}
 .drawer a[aria-current]{color:var(--cyan)}
+.prose figure.fig{margin-top:1.6em;display:grid;justify-items:center;gap:10px}
+.prose figure.fig a{display:block;max-width:100%}
+.prose figure.fig img{display:block;max-width:100%;height:auto;border:1px solid var(--line);box-shadow:0 18px 40px -22px #0006}
+.prose figure.fig-shot{justify-items:stretch}
+.prose figure.fig-shot img{width:100%}
+.prose figure.fig-phone img{max-height:480px;width:auto;border:6px solid #14181c;border-radius:28px}
+.prose figure.fig-kiosk img{max-height:480px;width:auto;border:6px solid #14181c;border-radius:12px}
+.prose figure.fig figcaption{font-size:14px;color:var(--muted);text-align:center;max-width:60ch}

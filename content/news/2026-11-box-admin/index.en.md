@@ -6,7 +6,7 @@ draft: true
 summary: "The next Calaos release adds an Admin page to the web interface: updates, network, services, logs, date and time, security and backup, with no terminal needed; the mobile app and the Calaos Home screen join in too."
 ---
 
-Until now, configuring the box itself (network address, updates, restarting a service) meant opening an SSH session. The next Calaos release brings these everyday tasks into the web interface, in a new **Admin** tab that uses the same colours and style as the rest of the app.
+Until now, configuring the box itself (network address, updates, restarting a service) meant opening an SSH session. The next Calaos release brings these everyday tasks into the web interface, in a new **Admin** tab.
 
 The tab is protected by an administration password. Once unlocked, it shows a home page with one card per topic.
 
@@ -28,7 +28,7 @@ The tab is protected by an administration password. Once unlocked, it shows a ho
 
 1. Open **Admin**, then **Network**.
 2. Click **Change** next to the interface, then enter the address, gateway and DNS servers.
-3. Click **Apply…**, then **Keep these settings** from the new address.
+3. Click **Apply…** and enter the code shown on an approver phone (add one first in **Security**), then **Keep these settings** from the new address.
 
 ![The Network page: two interfaces, with address, gateway, DNS and link state.](/media/admin-network-en.webp)
 
@@ -38,7 +38,7 @@ The tab is protected by an administration password. Once unlocked, it shows a ho
 
 1. Open **Admin**, then **Services**.
 2. Use **Restart**, **Stop** or **Start** on the service's row.
-3. The **Start with the box** switch decides what runs at the next boot.
+3. The **Start at boot** switch decides what runs at the next boot.
 
 ![The Services page: state of each program, start on boot, restart and stop.](/media/admin-services-en.webp)
 
@@ -66,15 +66,15 @@ The **Logs** page shows the box journal service by service (Calaos server, Mosqu
 
 ![The Security page: one approver phone registered and the admin password change.](/media/admin-security-en.webp)
 
-## Back up the configuration and tune Calaos
+## Back up the configuration
 
-The **Settings** page lets you download a backup file of the box configuration, restore it (nothing changes until you confirm), and edit a few Calaos server options, such as the logging level.
+The **Settings** page lets you download a backup file of the box configuration and restore it (nothing changes until you confirm). The file contains passwords in clear text (cameras, MCP token…) and is not encrypted: keep it somewhere safe.
 
-![The Settings page: download or restore a backup, logging options.](/media/admin-settings-en.webp)
+![The Settings page: download or restore a backup.](/media/admin-settings-en.webp)
 
 ## Confirm with a code on your phone
 
-**Why.** This is two-factor authentication for administration. When you change the admin password from the browser, the box does not rely on the password alone: it asks for a code shown in the Calaos app on your iPhone or Android phone. The code never appears in the text of the notification, and it expires after one minute.
+**Why.** This is two-factor authentication for administration. When you change the admin password from the browser, the box does not rely on the password alone: it asks for a code shown in the Calaos app on your iPhone or Android phone. With the current app, the code never appears in the text of the notification, and it expires after one minute.
 
 1. First register your phone as an approver (previous section).
 2. In the browser, start the sensitive action, for example **Change** the admin password.

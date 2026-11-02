@@ -6,7 +6,7 @@ draft: true
 summary: "La prochaine version de Calaos ajoute une page Admin à l'interface web : mises à jour, réseau, services, journaux, date et heure, sécurité et sauvegarde, sans ouvrir de terminal ; l'application mobile et l'écran Calaos Home s'y mettent aussi."
 ---
 
-Jusqu'ici, régler la box elle-même (adresse réseau, mises à jour, redémarrage d'un service) demandait une connexion SSH. La prochaine version de Calaos met ces tâches courantes dans l'interface web, dans un nouvel onglet **Admin**, avec les mêmes couleurs et le même style que le reste de l'application.
+Jusqu'ici, régler la box elle-même (adresse réseau, mises à jour, redémarrage d'un service) demandait une connexion SSH. La prochaine version de Calaos met ces tâches courantes dans l'interface web, dans un nouvel onglet **Admin**.
 
 L'onglet est protégé par un mot de passe d'administration. Une fois déverrouillé, il affiche un accueil avec une carte par sujet.
 
@@ -28,7 +28,7 @@ L'onglet est protégé par un mot de passe d'administration. Une fois déverroui
 
 1. Ouvrez **Admin**, puis **Réseau**.
 2. Cliquez sur **Modifier** à côté de l'interface voulue, saisissez l'adresse, la passerelle et les DNS.
-3. Cliquez sur **Appliquer…**, puis sur **Garder ces réglages** depuis la nouvelle adresse.
+3. Cliquez sur **Appliquer…** et saisissez le code affiché sur un téléphone approbateur (déclarez-en un d'abord dans **Sécurité**), puis sur **Garder ces réglages** depuis la nouvelle adresse.
 
 ![La page Réseau : deux interfaces, avec adresse, passerelle, DNS et état de la connexion.](/media/admin-network-fr.webp)
 
@@ -66,15 +66,15 @@ La page **Journaux** affiche le journal de la box service par service (serveur C
 
 ![La page Sécurité : un téléphone approbateur déclaré et le changement du mot de passe admin.](/media/admin-security-fr.webp)
 
-## Sauvegarder la configuration et régler Calaos
+## Sauvegarder la configuration
 
-La page **Réglages** permet de télécharger un fichier de sauvegarde de la configuration de la box, de le restaurer (rien ne change avant que vous ne confirmiez), et de modifier quelques options de Calaos server, comme le niveau de journalisation.
+La page **Réglages** permet de télécharger un fichier de sauvegarde de la configuration de la box et de le restaurer (rien ne change avant que vous ne confirmiez). Le fichier contient des mots de passe en clair (caméras, jeton MCP…) et n'est pas chiffré : gardez-le en lieu sûr.
 
-![La page Réglages : télécharger ou restaurer une sauvegarde, options de journalisation.](/media/admin-settings-fr.webp)
+![La page Réglages : télécharger ou restaurer une sauvegarde.](/media/admin-settings-fr.webp)
 
 ## Valider avec un code sur votre téléphone
 
-**À quoi ça sert.** C'est la double authentification de l'administration. Quand vous changez le mot de passe admin depuis le navigateur, la box ne se contente pas du mot de passe : elle demande un code affiché dans l'application Calaos de votre iPhone ou de votre téléphone Android. Le code n'apparaît jamais dans le texte de la notification et il expire au bout d'une minute.
+**À quoi ça sert.** C'est la double authentification de l'administration. Quand vous changez le mot de passe admin depuis le navigateur, la box ne se contente pas du mot de passe : elle demande un code affiché dans l'application Calaos de votre iPhone ou de votre téléphone Android. Avec l'application à jour, le code n'apparaît jamais dans le texte de la notification et il expire au bout d'une minute.
 
 1. Déclarez d'abord votre téléphone comme approbateur (section précédente).
 2. Dans le navigateur, lancez l'action sensible, par exemple **Changer** le mot de passe admin.
