@@ -11,7 +11,7 @@ The calaos.fr website has been rebuilt from scratch.
 
 - **A simpler site.** It is built with [Hugo](https://gohugo.io): static pages with no database. The content is kept apart from the layout, which makes it easier to keep up to date.
 - **Real screenshots.** The interfaces shown on the home page (mobile app, touch screen, wall panel, browser) are screenshots of Calaos as it runs today.
-- **In English and in French.** Every page exists in both languages; the switch at the bottom of the page goes from one to the other.
+- **In English and in French.** The site is available in English and in French; the switch at the bottom of the page goes from one language to the other.
 
 ## What's next
 

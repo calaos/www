@@ -1,2 +1,3 @@
-{{- /* Off under hugo server, so that previews stay out of the statistics. */ -}}
-{{ with site.Params.umami }}{{ if and hugo.IsProduction .script .id }}<script defer src="{{ .script }}" data-website-id="{{ .id }}"></script>{{ end }}{{ end }}
+{{- /* Off under hugo server, so that previews stay out of the statistics. The query
+     string is not sent: it can carry the giscus session token (?giscus=). */ -}}
+{{ with site.Params.umami }}{{ if and hugo.IsProduction .script .id }}<script defer src="{{ .script }}" data-website-id="{{ .id }}" data-exclude-search="true"></script>{{ end }}{{ end }}

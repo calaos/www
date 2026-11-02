@@ -51,8 +51,12 @@ go(txt,[{opacity:0,transform:`translateX(${dir*20}px)`},{opacity:1,transform:"no
 new MutationObserver(m=>{for(const r of m)if(r.target.getAttribute("aria-selected")==="true")play(tabs.indexOf(r.target))}).observe(document.querySelector(".tabs"),{attributes:true,attributeFilter:["aria-selected"],subtree:true});
 })();
 // giscus is fetched on click only: before it, no request leaves the site.
+// Back from GitHub sign-in, ?giscus= carries the session token: only client.js
+// takes it out of the address, so it loads at once (consent already given).
 (()=>{const b=document.getElementById("comments-load");if(!b)return;
-b.onclick=()=>{const box=b.parentElement.querySelector(".giscus"),s=document.createElement("script");
+const load=back=>{const box=b.parentElement.querySelector(".giscus"),s=document.createElement("script");
 for(const a of box.attributes)if(a.name.startsWith("data-"))s.setAttribute(a.name,a.value);
 s.src="https://giscus.app/client.js";s.async=true;s.crossOrigin="anonymous";box.append(s);
-b.remove();document.getElementById("comments-h").focus({preventScroll:true})}})();
+b.remove();document.getElementById("comments-h").focus({preventScroll:!back})};
+b.onclick=()=>load(false);
+if(new URLSearchParams(location.search).has("giscus"))load(true)})();

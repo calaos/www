@@ -1,7 +1,8 @@
 <head><script>document.documentElement.classList.add("js")</script><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ .Title }}{{ if not .IsHome }} | {{ site.Title }}{{ end }}</title>
 {{ with or .Description (cond .IsPage (.Summary | plainify) "") }}<meta name="description" content="{{ . }}">{{ end }}
-<link rel="canonical" href="{{ .Permalink }}">
+{{ $canon := .Permalink }}{{ if and .IsSection (eq .Section "news") }}{{ $canon = (partial "news-pager.html" .).URL | absURL }}{{ end -}}
+<link rel="canonical" href="{{ $canon }}">
 {{ range .AllTranslations }}<link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
 {{ end }}{{ if .IsHome }}<link rel="alternate" hreflang="x-default" href="{{ site.BaseURL }}">
 {{ end }}{{ with .CurrentSection.OutputFormats.Get "rss" }}<link rel="alternate" type="application/rss+xml" href="{{ .Permalink }}" title="{{ site.Title }} – {{ $.CurrentSection.Title }}">

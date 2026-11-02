@@ -6,7 +6,7 @@
 {{ with .OutputFormats.Get "rss" }}<p class="feed"><a href="{{ .RelPermalink }}" type="application/rss+xml">{{ T "news_rss" }}</a></p>{{ end }}
 </div></header>
 <section class="news"><div class="wrap">
-{{- $pager := .Paginate .Pages.ByDate.Reverse }}
+{{- $pager := partial "news-pager.html" . }}
 {{- with $pager.Pages }}
 <ol class="posts">
 {{- range . }}
