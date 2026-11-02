@@ -19,7 +19,7 @@ const mq=matchMedia("(prefers-reduced-motion: reduce)");
 if(!mq.matches){document.documentElement.classList.add("mo");
 const q=x=>[...document.querySelectorAll(x)],nav=document.getElementById("nav"),bar=document.createElement("div");
 bar.className="m3-bar";document.body.append(bar);
-q("h2,.flow li,.why li,.row").forEach((e,i)=>{e.classList.add("rv");e.style.setProperty("--rd",(i%4)*.06+"s")});
+q("h2,.flow li,.why li,.row").filter(e=>!e.closest(".news,.post")).forEach((e,i)=>{e.classList.add("rv");e.style.setProperty("--rd",(i%4)*.06+"s")});
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.2,rootMargin:"0px 0px -8% 0px"});
 q(".rv").forEach(e=>io.observe(e));
 const d5=document.querySelector(".d5b");let ft=0;
@@ -50,3 +50,15 @@ go(shot,[{opacity:0,transform:`translateX(${dir*36}px)`,filter:"blur(4px)"},{opa
 go(txt,[{opacity:0,transform:`translateX(${dir*20}px)`},{opacity:1,transform:"none"}],{duration:420,delay:90})};
 new MutationObserver(m=>{for(const r of m)if(r.target.getAttribute("aria-selected")==="true")play(tabs.indexOf(r.target))}).observe(document.querySelector(".tabs"),{attributes:true,attributeFilter:["aria-selected"],subtree:true});
 })();
+// giscus is fetched on click only: before it, no request leaves the site.
+// Back from GitHub sign-in, ?giscus= carries the session token and only client.js
+// takes it out of the address, so it loads at once, but only if this tab clicked:
+// a forged ?giscus= link alone must not reach a third party.
+(()=>{const b=document.getElementById("comments-load");if(!b)return;
+const k="comments-ok",clicked=()=>{try{return sessionStorage.getItem(k)==="1"}catch(e){return false}};
+const load=back=>{const box=b.parentElement.querySelector(".giscus"),s=document.createElement("script");
+for(const a of box.attributes)if(a.name.startsWith("data-"))s.setAttribute(a.name,a.value);
+s.src="https://giscus.app/client.js";s.async=true;s.crossOrigin="anonymous";box.append(s);
+b.remove();document.getElementById("comments-h").focus({preventScroll:!back})};
+b.onclick=()=>{try{sessionStorage.setItem(k,"1")}catch(e){}load(false)};
+if(clicked()&&new URLSearchParams(location.search).has("giscus")){try{sessionStorage.removeItem(k)}catch(e){}load(true)}})();

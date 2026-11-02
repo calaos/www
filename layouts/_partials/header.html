@@ -6,7 +6,7 @@
 {{- $url := partial "anchor-url.html" (dict "url" .URL "page" $page) -}}
 {{- if .Params.button }}<a class="btn btn-p" href="{{ $url }}">{{ .Name }}</a>
 {{- else if .Params.icon }}<a class="menu-gh" href="{{ $url }}" aria-label="{{ T "nav_github" }}">{{ partial "icon.html" .Params.icon }}</a>
-{{- else }}<a href="{{ $url }}">{{ .Name }}</a>
+{{- else }}<a href="{{ $url }}"{{ if or ($page.IsMenuCurrent "main" .) ($page.HasMenuCurrent "main" .) }} aria-current="page"{{ end }}>{{ .Name }}</a>
 {{- end -}}
 {{- end -}}
 </nav>
@@ -16,7 +16,7 @@
 {{- $url := partial "anchor-url.html" (dict "url" .URL "page" $page) -}}
 {{- if .Params.button }}<a class="btn btn-p" href="{{ $url }}">{{ .Name }}</a>
 {{- else if .Params.icon }}<a href="{{ $url }}">{{ partial "icon.html" .Params.icon }}{{ .Name }}</a>
-{{- else }}<a href="{{ $url }}">{{ .Name }}</a>
+{{- else }}<a href="{{ $url }}"{{ if or ($page.IsMenuCurrent "main" .) ($page.HasMenuCurrent "main" .) }} aria-current="page"{{ end }}>{{ .Name }}</a>
 {{- end -}}
 {{- end -}}
 </nav></header>

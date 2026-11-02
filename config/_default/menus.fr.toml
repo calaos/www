@@ -24,6 +24,11 @@ url = "#communaute"
 weight = 50
 
 [[main]]
+name = "Actualités"
+pageRef = "/news"
+weight = 55
+
+[[main]]
 name = "Documentation"
 url = "https://doc.calaos.fr"
 weight = 60

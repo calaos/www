@@ -1,7 +1,13 @@
 [fr]
 languageName = "Français"
 weight = 1
+[fr.permalinks.section]
+news = "/actualites/"
+[fr.permalinks.page]
+news = "/actualites/:slug/"
 
 [en]
 languageName = "English"
 weight = 2
+[en.permalinks.page]
+news = "/news/:slug/"

@@ -1,0 +1,6 @@
+{{- /* The page in .lang; an untranslated page falls back to its section, then to the home page. */ -}}
+{{- $t := false -}}
+{{- range slice .page .page.CurrentSection site.Home -}}
+{{- if not $t }}{{ range .AllTranslations }}{{ if eq .Lang $.lang }}{{ $t = . }}{{ end }}{{ end }}{{ end -}}
+{{- end -}}
+{{- return $t -}}
