@@ -9,6 +9,11 @@ disableKinds = ["taxonomy", "term", "sitemap", "404"]
 [outputs]
 home = ["html"]
 
+[pagination]
+pagerSize = 10
+# No page/1/ copy of the first page: it only redirects to the list.
+disableAliases = true
+
 [module.hugoVersion]
 extended = true
 min = "0.154.5"

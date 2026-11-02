@@ -1,10 +1,10 @@
 <head><script>document.documentElement.classList.add("js")</script><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ .Title }}{{ if not .IsHome }} | {{ site.Title }}{{ end }}</title>
-{{ with .Description }}<meta name="description" content="{{ . }}">{{ end }}
+{{ with or .Description (cond .IsPage (.Summary | plainify) "") }}<meta name="description" content="{{ . }}">{{ end }}
 <link rel="canonical" href="{{ .Permalink }}">
 {{ range .AllTranslations }}<link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
 {{ end }}{{ if .IsHome }}<link rel="alternate" hreflang="x-default" href="{{ site.BaseURL }}">
-{{ end }}{{ with .OutputFormats.Get "rss" }}<link rel="alternate" type="application/rss+xml" href="{{ .Permalink }}" title="{{ site.Title }}">
+{{ end }}{{ with .CurrentSection.OutputFormats.Get "rss" }}<link rel="alternate" type="application/rss+xml" href="{{ .Permalink }}" title="{{ site.Title }} – {{ $.CurrentSection.Title }}">
 {{ end }}<link rel="icon" href="{{ "media/favicon.png" | relURL }}" type="image/png">
 <link rel="preload" href="{{ "fonts/manrope/manrope-latin.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
 {{ with resources.Get "css/calaos.css" | minify | fingerprint }}<link rel="stylesheet" href="{{ .RelPermalink }}">{{ end }}

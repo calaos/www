@@ -1,0 +1,33 @@
+{{ define "main" }}
+<main id="content">
+<header class="phead dark"><div class="wrap">
+<h1>{{ .Title }}</h1>
+{{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
+{{ with .OutputFormats.Get "rss" }}<p class="feed"><a href="{{ .RelPermalink }}" type="application/rss+xml">{{ T "news_rss" }}</a></p>{{ end }}
+</div></header>
+<section class="news"><div class="wrap">
+{{- $pager := .Paginate .Pages.ByDate.Reverse }}
+{{- with $pager.Pages }}
+<ol class="posts">
+{{- range . }}
+<li><article>
+{{ partial "news-date.html" . }}
+<h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+{{ with .Summary }}<p>{{ . | plainify }}</p>{{ end }}
+<a class="l" href="{{ .RelPermalink }}" aria-hidden="true" tabindex="-1">{{ T "news_read" }}{{ partial "icon.html" "arrow" }}</a>
+</article></li>
+{{- end }}
+</ol>
+{{- else }}
+<p class="empty">{{ T "news_empty" }}</p>
+{{- end }}
+{{- if gt $pager.TotalPages 1 }}
+<nav class="pager" aria-label="{{ T "news_pages" }}">
+{{- with $pager.Prev }}<a class="btn btn-s" href="{{ .URL }}" rel="prev">{{ T "news_newer" }}</a>{{ end }}
+<span>{{ $pager.PageNumber }} / {{ $pager.TotalPages }}</span>
+{{- with $pager.Next }}<a class="btn btn-s" href="{{ .URL }}" rel="next">{{ T "news_older" }}</a>{{ end }}
+</nav>
+{{- end }}
+</div></section>
+</main>
+{{ end }}

@@ -1,0 +1,13 @@
+{{ define "main" }}
+<main id="content">
+<header class="phead dark"><div class="wrap">
+<p class="back"><a href="{{ .CurrentSection.RelPermalink }}">{{ partial "icon.html" "arrow" }}{{ T "news_back" }}</a></p>
+<h1>{{ .Title }}</h1>
+{{ partial "news-date.html" . }}
+</div></header>
+<section class="post"><div class="wrap">
+<div class="prose">{{ .Content }}</div>
+{{ partial "comments.html" . }}
+</div></section>
+</main>
+{{ end }}
