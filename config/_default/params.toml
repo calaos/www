@@ -7,7 +7,7 @@ id = "8e40479d-9533-4217-a2a6-f3387e04aca1"
 # Comments of the news articles (giscus, GitHub Discussions). Leave any value
 # empty and no comment block is rendered. Values: https://giscus.app
 [giscus]
-repo = ""
-repoId = ""
-category = ""
-categoryId = ""
+repo = "calaos/www"
+repoId = "MDEwOlJlcG9zaXRvcnkxMjg2MDQ1Ng=="
+category = "Announcements"
+categoryId = "DIC_kwDOAMQ8KM4DKOLe"
