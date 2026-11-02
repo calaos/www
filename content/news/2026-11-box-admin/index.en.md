@@ -3,7 +3,7 @@ title: "Manage your Calaos box from the browser"
 slug: "box-administration"
 date: 2026-11-02
 draft: true
-summary: "The next Calaos release adds an Admin page to the web interface: updates, network, services, logs, date and time, security and backup, with no terminal needed."
+summary: "The next Calaos release adds an Admin page to the web interface: updates, network, services, logs, date and time, security and backup, with no terminal needed; the mobile app and the Calaos Home screen join in too."
 ---
 
 Until now, configuring the box itself (network address, updates, restarting a service) meant opening an SSH session. The next Calaos release brings these everyday tasks into the web interface, in a new **Admin** tab that uses the same colours and style as the rest of the app.
@@ -72,6 +72,51 @@ The **Settings** page lets you download a backup file of the box configuration, 
 
 ![The Settings page: download or restore a backup, logging options.](/media/admin-settings-en.webp)
 
+## Confirm with a code on your phone
+
+**Why.** This is two-factor authentication for administration. When you change the admin password from the browser, the box does not rely on the password alone: it asks for a code shown in the Calaos app on your iPhone or Android phone. The code never appears in the text of the notification, and it expires after one minute.
+
+1. First register your phone as an approver (previous section).
+2. In the browser, start the sensitive action, for example **Change** the admin password.
+3. The phone receives a notification: open it and the app shows the code and the time left.
+4. Enter the code in the web console before the countdown ends. Do not share it with anyone.
+
+On a phone the notification is the system's own, which cannot be reproduced on a desktop. The screenshot therefore shows the app's **Admin code** screen as rendered by the desktop build, with a made-up code.
+
+![The Admin code screen of the Calaos app: a six-digit code, a remaining-time bar and a Copy button.](/media/mobile-admin-code-en.webp)
+
+## The mobile app Settings
+
+**Why.** The Calaos phone app gets a **Settings** screen organised in two groups. "This phone": the device name and language, the connection (session, certificates, fingerprint or Face ID unlock) and favourites. "Box": box updates and the latest events.
+
+1. Open the app, then **Settings**.
+2. Tap a card to open its page.
+3. The cards in the **Box** group ask for the administration password, which is separate from your account password, and a secure (https) connection.
+
+![The app Settings screen: Device, Connection and Favorites cards for the phone, Box and Events for the box.](/media/mobile-settings-en.webp)
+
+## Update the box from your phone
+
+**Why.** Install box updates without opening the browser, for instance from the sofa. The app lists the available versions, before and after, like the web page.
+
+1. Open **Settings**, then **Box**, and unlock administration.
+2. Tap **Check for updates** if the list is out of date.
+3. Tap **Update all**. Installing takes a few minutes; the box stays usable and the app may lose the connection for a moment and come back on its own.
+
+The same screen can restart the box. The screenshot shows a demo box.
+
+![The Box page of the app: two updates available, the Update all and Check buttons, and the box reboot.](/media/mobile-updates-en.webp)
+
+## Set the date and time on the Calaos Home screen
+
+**Why.** If your box is driven by a Calaos Home touch screen, you can set the time zone, automatic time (NTP) or a date and time by hand there, with no keyboard or browser.
+
+1. On the screen, open the configuration panel, then the **Date and time** tile.
+2. **Change** sets the time zone.
+3. **Stop using NTP** turns automatic time off; **Set** then lets you enter the date and time. Setting it by hand turns automatic time off.
+
+![The Date and time screen of Calaos Home: clock, Europe/Paris time zone, automatic time on and a Set button.](/media/kiosk-time-en.webp)
+
 ## Also in there
 
 - **MCP access**: the address and token to give an AI assistant so it can control the house, with a button to regenerate the token.
@@ -79,4 +124,4 @@ The **Settings** page lets you download a backup file of the box configuration, 
 
 ## Availability
 
-These features come with the next Calaos release; they are not published yet. The screenshots show a demo home. Feedback is welcome on the [Discord](https://discord.gg/FpBT9yhZxp).
+These features come with the next Calaos release; they are not published yet. The mobile app and Calaos Home screen changes are already in development; their release date is not set. The screenshots show a demo home. Feedback is welcome on the [Discord](https://discord.gg/FpBT9yhZxp).
