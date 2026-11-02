@@ -2,7 +2,7 @@
 {{- with site.Params.giscus }}{{ if and .repo .repoId .category .categoryId }}
 <section class="comments" aria-labelledby="comments-h">
 <h2 id="comments-h" tabindex="-1">{{ T "comments_title" }}</h2>
-<p>{{ T "comments_note" }}</p>
+<p>{{ T "comments_note" }}{{ with site.GetPage "/legal/privacy" }} <a href="{{ .RelPermalink }}">{{ T "comments_privacy" }}</a>.{{ end }}</p>
 <button type="button" class="btn btn-s" id="comments-load">{{ T "comments_show" }}</button>
 <noscript><p>{{ T "comments_nojs" }}</p></noscript>
 <div class="giscus" data-repo="{{ .repo }}" data-repo-id="{{ .repoId }}" data-category="{{ .category }}" data-category-id="{{ .categoryId }}" data-mapping="specific" data-term="{{ $.Lang }}/{{ $.File.ContentBaseName }}" data-strict="1" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="{{ $.Lang }}"></div>
