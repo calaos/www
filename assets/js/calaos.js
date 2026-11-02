@@ -61,4 +61,4 @@ for(const a of box.attributes)if(a.name.startsWith("data-"))s.setAttribute(a.nam
 s.src="https://giscus.app/client.js";s.async=true;s.crossOrigin="anonymous";box.append(s);
 b.remove();document.getElementById("comments-h").focus({preventScroll:!back})};
 b.onclick=()=>{try{sessionStorage.setItem(k,"1")}catch(e){}load(false)};
-if(clicked()&&new URLSearchParams(location.search).has("giscus"))load(true)})();
+if(clicked()&&new URLSearchParams(location.search).has("giscus")){try{sessionStorage.removeItem(k)}catch(e){}load(true)}})();

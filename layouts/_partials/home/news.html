@@ -1,0 +1,17 @@
+{{- $news := where site.RegularPages "Section" "news" }}
+{{- with first 3 $news.ByDate.Reverse }}
+<section class="nw" id="news"><div class="wrap">
+<div class="nw-head"><div><span class="eyebrow">{{ T "news_tag" }}</span><h2 id="news-h">{{ T "news_latest" }}</h2></div>
+{{- with site.GetPage "/news" }}<a class="nw-all" href="{{ .RelPermalink }}">{{ T "news_back" }}{{ partial "icon.html" "arrow" }}</a>{{ end }}</div>
+<ol class="cards n{{ len . }}" aria-labelledby="news-h">
+{{- range . }}
+<li class="card">
+{{ partial "news-date.html" . }}
+<h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+{{ with .Summary }}<p>{{ . | plainify }}</p>{{ end }}
+<span class="rd" aria-hidden="true">{{ T "news_read" }}{{ partial "icon.html" "arrow" }}</span>
+</li>
+{{- end }}
+</ol>
+</div></section>
+{{- end }}
