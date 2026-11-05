@@ -66,35 +66,42 @@ Submitting `https://calaos.fr/sitemap.xml` in Google Search Console is a manual 
 404 page and nginx
 ---
 
-Hugo writes `/fr/404.html` and `/en/404.html` (`noindex`, links to both home pages). The server must serve them with the 404 status. Nginx settings for calaos.fr (not part of this repository); TLS is terminated by haproxy upstream, hence port 80 without certificate:
+Hugo writes `/fr/404.html` and `/en/404.html` (`noindex`, links to both home pages). The server must serve them with the 404 status. Nginx server block for calaos.fr, as it runs in production (not part of this repository):
 
     server {
-        listen 80;
-        server_name www.calaos.fr;
-        return 301 https://calaos.fr$request_uri;
+            listen 80 default_server;
+            listen [::]:80 default_server;
+            root /var/www/static;
+            index index.html;
+            server_name calaos.fr;
+            absolute_redirect off;
+            error_page 404 /en/404.html;
+            location = / {
+                    add_header Vary Accept-Language;
+                    return 302 $calaos_lang;
+            }
+            location ~* "\.[0-9a-f]{32,}\.(css|js)$" {
+                    add_header Cache-Control "public, max-age=31536000, immutable";
+                    try_files $uri =404;
+            }
+            location /fr/ {
+                    error_page 404 /fr/404.html;
+                    try_files $uri $uri/ =404;
+            }
+            location / {
+                    try_files $uri $uri/ =404;
+            }
     }
 
-    server {
-        # ... existing calaos.fr settings ...
+The `map` that sets `$calaos_lang` from `Accept-Language` is defined at the `http` level, outside this block. An `add_header` inside a `location` replaces every header inherited from the `server` level; repeat there any header that must also apply.
 
-        # $calaos_lang comes from a map defined at the http level, outside this file.
-        location = / {
-            # existing: 302 to /fr/ or /en/ according to $calaos_lang
-        }
+Missing URLs get the English 404 page, except under `/fr/` which gets the French one. Fingerprinted CSS and JS (`/css/*.min.<hash>.css`, `/js/*.min.<hash>.js`) never change under the same name, so they are cached for a year.
 
-        error_page 404 /en/404.html;
+Reverse proxy (haproxy) in front of nginx:
 
-        location /fr/ {
-            error_page 404 /fr/404.html;
-            try_files $uri $uri/ =404;
-        }
-
-        location ~* \.[0-9a-f]{64}\.(css|js)$ {
-            add_header Cache-Control "public, max-age=31536000, immutable";
-        }
-    }
-
-`www.calaos.fr` redirects to the apex so that only one host is indexed. Missing URLs get the English 404 page, except under `/fr/` which gets the French one. Fingerprinted CSS and JS (`/css/*.min.<hash>.css`, `/js/*.min.<hash>.js`) never change under the same name, so they can be cached for a year. Note: `add_header` inside a `location` replaces every header inherited from the `server` level; repeat there any header that must also apply to these files.
+- TLS is terminated by the proxy, hence nginx listens on port 80 only.
+- The proxy rewrites the `Host` header to `calaos.fr`, so the 301 from `www` to the apex must be done in the proxy; a `server_name www.calaos.fr` block in nginx would never match. Only the apex is indexed. Example: `http-request redirect prefix https://calaos.fr code 301 if { hdr(host) -i www.calaos.fr }`.
+- A `Cache-Control` set globally by the proxy overwrites the one from nginx, which defeats the one-year cache above. Set it only when the backend sends none, for example: `http-response set-header Cache-Control "no-store, no-cache, must-revalidate" unless { res.hdr(Cache-Control) -m found }`.
 
 Build
 ---
