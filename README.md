@@ -56,20 +56,52 @@ Hugo generates, with no extra step:
 - `sitemap.xml` (index) and `/fr/sitemap.xml`, `/en/sitemap.xml`, with the hreflang alternates of every page, the legal pages and the news included.
 - `robots.txt`: everything allowed, and a `Sitemap:` line with the absolute production URL built from `baseURL`.
 - Open Graph and Twitter Card tags, `og:locale` and its alternate, and JSON-LD (Organization, WebSite and SoftwareApplication on the home page, BlogPosting on articles; the organization is the author, no person is named).
-- `/apple-touch-icon.png` (from `media/favicon.png`). `static/favicon.ico` is committed, made from the same file with ImageMagick (`magick static/media/favicon.png -define icon:auto-resize=32,16 static/favicon.ico`): Hugo cannot write ICO.
+- `static/media/logo.png`: 512×512 transparent 32-bit PNG (the touch icon cut out of the Calaos logo, reflection removed), used as the `logo` of the JSON-LD Organization and as the page icon.
+- `static/apple-touch-icon.png`: 180×180, opaque `#171717` background, logo centered at about 80 % (iOS fills transparency with black and applies its own rounded mask, so the square is full-bleed). Made with `magick static/media/logo.png -resize 144x144 -background '#171717' -gravity center -extent 180x180 -alpha remove -alpha off static/apple-touch-icon.png`. `static/favicon.ico` is committed, made from the same file with ImageMagick (`magick static/media/logo.png -define icon:auto-resize=48,32,16 static/favicon.ico`): Hugo cannot write ICO.
 
 The social image of an article is its `image` front matter, a path under `static/media/` (`image: media/my-photo.jpg`), cropped by Hugo to 1200×630; without it every page uses the hero photo. A wrong path fails the build.
 
 Submitting `https://calaos.fr/sitemap.xml` in Google Search Console is a manual step.
 
-404 page
+404 page and nginx
 ---
 
-Hugo writes `/fr/404.html` and `/en/404.html` (`noindex`, links to both home pages). The server must serve one of them with the 404 status. To add to the nginx `server` block of calaos.fr (not part of this repository):
+Hugo writes `/fr/404.html` and `/en/404.html` (`noindex`, links to both home pages). The server must serve them with the 404 status. Nginx server block for calaos.fr, as it runs in production (not part of this repository):
 
-    error_page 404 /en/404.html;
+    server {
+            listen 80 default_server;
+            listen [::]:80 default_server;
+            root /var/www/static;
+            index index.html;
+            server_name calaos.fr;
+            absolute_redirect off;
+            error_page 404 /en/404.html;
+            location = / {
+                    add_header Vary Accept-Language;
+                    return 302 $calaos_lang;
+            }
+            location ~* "\.[0-9a-f]{32,}\.(css|js)$" {
+                    add_header Cache-Control "public, max-age=31536000, immutable";
+                    try_files $uri =404;
+            }
+            location /fr/ {
+                    error_page 404 /fr/404.html;
+                    try_files $uri $uri/ =404;
+            }
+            location / {
+                    try_files $uri $uri/ =404;
+            }
+    }
 
-The page is served as is, whatever the language of the missing URL; use `/fr/404.html` to default to French.
+The `map` that sets `$calaos_lang` from `Accept-Language` is defined at the `http` level, outside this block. An `add_header` inside a `location` replaces every header inherited from the `server` level; repeat there any header that must also apply.
+
+Missing URLs get the English 404 page, except under `/fr/` which gets the French one. Fingerprinted CSS and JS (`/css/*.min.<hash>.css`, `/js/*.min.<hash>.js`) never change under the same name, so they are cached for a year.
+
+Reverse proxy (haproxy) in front of nginx:
+
+- TLS is terminated by the proxy, hence nginx listens on port 80 only.
+- The proxy rewrites the `Host` header to `calaos.fr`, so the 301 from `www` to the apex must be done in the proxy; a `server_name www.calaos.fr` block in nginx would never match. Only the apex is indexed. Example: `http-request redirect prefix https://calaos.fr code 301 if { hdr(host) -i www.calaos.fr }`.
+- A `Cache-Control` set globally by the proxy overwrites the one from nginx, which defeats the one-year cache above. Set it only when the backend sends none, for example: `http-response set-header Cache-Control "no-store, no-cache, must-revalidate" unless { res.hdr(Cache-Control) -m found }`.
 
 Build
 ---
