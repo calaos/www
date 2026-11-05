@@ -1,0 +1,5 @@
+{{- $path := path.Join "static" .Destination -}}
+{{- $cfg := imageConfig $path -}}
+{{- $kind := "shot" -}}
+{{- if strings.Contains .Destination "/mobile-" }}{{ $kind = "phone" }}{{ else if strings.Contains .Destination "/kiosk-" }}{{ $kind = "kiosk" }}{{ end -}}
+<figure class="fig fig-{{ $kind }}"><a href="{{ .Destination | relURL }}"><img src="{{ .Destination | relURL }}" alt="{{ .Text }}" width="{{ $cfg.Width }}" height="{{ $cfg.Height }}" loading="lazy" decoding="async"></a><figcaption>{{ .Text }}</figcaption></figure>
