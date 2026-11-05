@@ -1,12 +1,12 @@
 ---
 title: "Administrer sa box Calaos depuis le navigateur"
 slug: "administration-de-la-box"
-date: 2026-11-02
-draft: true
-summary: "La prochaine version de Calaos ajoute une page Admin à l'interface web : mises à jour, réseau, services, journaux, date et heure, sécurité et sauvegarde, sans ouvrir de terminal ; l'application mobile et l'écran Calaos Home s'y mettent aussi."
+date: 2026-11-05
+draft: false
+summary: "Calaos 4.8 ajoute une page Admin à l'interface web : mises à jour, réseau, services, journaux, date et heure, sécurité et sauvegarde, sans ouvrir de terminal ; l'application mobile et l'écran Calaos Home s'y mettent aussi."
 ---
 
-Jusqu'ici, régler la box elle-même (adresse réseau, mises à jour, redémarrage d'un service) demandait une connexion SSH. La prochaine version de Calaos met ces tâches courantes dans l'interface web, dans un nouvel onglet **Admin**.
+Jusqu'ici, régler la box elle-même (adresse réseau, mises à jour, redémarrage d'un service) demandait une connexion SSH. Calaos 4.8 (calaos-server 4.8.0, interface web 4.2.0, calaos-container 1.9.1) met ces tâches courantes dans l'interface web, dans un nouvel onglet **Admin**.
 
 L'onglet est protégé par un mot de passe d'administration. Une fois déverrouillé, il affiche un accueil avec une carte par sujet.
 
@@ -124,4 +124,4 @@ Le même écran permet de redémarrer la box. La capture montre une box de démo
 
 ## Disponibilité
 
-Ces fonctions arrivent avec la prochaine version de Calaos ; elles ne sont pas encore publiées. Les nouveautés de l'application mobile et de l'écran Calaos Home sont déjà en développement ; leur date de sortie n'est pas fixée. Les captures montrent une maison de démonstration. Vos retours sont bienvenus sur le [Discord](https://discord.gg/FpBT9yhZxp).
+Ces fonctions sont disponibles dans calaos-server 4.8.0, calaos-web-app 4.2.0 et calaos-container 1.9.1. Les nouveautés de l'application mobile et de l'écran Calaos Home sont dans calaos-home 4.5.0. Les captures montrent une maison de démonstration. Vos retours sont bienvenus sur le [Discord](https://discord.gg/FpBT9yhZxp).

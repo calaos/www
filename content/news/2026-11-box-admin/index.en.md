@@ -1,12 +1,12 @@
 ---
 title: "Manage your Calaos box from the browser"
 slug: "box-administration"
-date: 2026-11-02
-draft: true
-summary: "The next Calaos release adds an Admin page to the web interface: updates, network, services, logs, date and time, security and backup, with no terminal needed; the mobile app and the Calaos Home screen join in too."
+date: 2026-11-05
+draft: false
+summary: "Calaos 4.8 adds an Admin page to the web interface: updates, network, services, logs, date and time, security and backup, with no terminal needed; the mobile app and the Calaos Home screen join in too."
 ---
 
-Until now, configuring the box itself (network address, updates, restarting a service) meant opening an SSH session. The next Calaos release brings these everyday tasks into the web interface, in a new **Admin** tab.
+Until now, configuring the box itself (network address, updates, restarting a service) meant opening an SSH session. Calaos 4.8 (calaos-server 4.8.0, web interface 4.2.0, calaos-container 1.9.1) brings these everyday tasks into the web interface, in a new **Admin** tab.
 
 The tab is protected by an administration password. Once unlocked, it shows a home page with one card per topic.
 
@@ -124,4 +124,4 @@ The same screen can restart the box. The screenshot shows a demo box.
 
 ## Availability
 
-These features come with the next Calaos release; they are not published yet. The mobile app and Calaos Home screen changes are already in development; their release date is not set. The screenshots show a demo home. Feedback is welcome on the [Discord](https://discord.gg/FpBT9yhZxp).
+These features are available in calaos-server 4.8.0, calaos-web-app 4.2.0 and calaos-container 1.9.1. The mobile app and Calaos Home screen changes are in calaos-home 4.5.0. The screenshots show a demo home. Feedback is welcome on the [Discord](https://discord.gg/FpBT9yhZxp).
