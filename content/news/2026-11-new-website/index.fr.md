@@ -3,6 +3,7 @@ title: "Un nouveau site pour Calaos"
 slug: "nouveau-site"
 date: 2026-11-02
 summary: "calaos.fr change de peau : un site refait de zéro, qui montre les interfaces de Calaos telles qu’elles sont, en français et en anglais."
+description: "calaos.fr a été refait de zéro avec Hugo : un site statique plus simple, qui montre les interfaces de Calaos telles qu’elles sont, en français et en anglais."
 ---
 
 Le site calaos.fr a été entièrement refait.

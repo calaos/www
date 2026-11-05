@@ -1,0 +1,5 @@
+{{- /* Social image of a page: its `image` front matter (path under static/media), else the hero photo; cropped to 1200x630. */ -}}
+{{- $src := .Params.image | default "media/hero.jpg" -}}
+{{- $r := resources.Get $src -}}
+{{- if not $r }}{{ errorf "image %q of %s is not under static/media" $src .File.Path }}{{ end -}}
+{{- return ($r.Fill "1200x630 center q85 jpg") -}}

@@ -1,0 +1,11 @@
+{{ define "main" }}
+<main id="content">
+<header class="phead dark"><div class="wrap">
+<h1>{{ T "404_title" }}</h1>
+<p class="lead">{{ T "404_text" }}</p>
+</div></header>
+<section class="post"><div class="wrap">
+<p class="cta">{{ range site.Home.AllTranslations }}<a class="btn {{ if eq .Lang $.Lang }}btn-p{{ else }}btn-s{{ end }}" href="{{ .RelPermalink }}" hreflang="{{ .Lang }}" lang="{{ .Lang }}">{{ .Site.Params.homeLabel }} {{ partial "icon.html" "arrow" }}</a>{{ end }}</p>
+</div></section>
+</main>
+{{ end }}

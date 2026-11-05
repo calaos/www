@@ -1,6 +1,9 @@
 [fr]
 languageName = "Français"
 weight = 1
+[fr.params]
+ogLocale = "fr_FR"
+homeLabel = "Accueil en français"
 [fr.permalinks.section]
 news = "/actualites/"
 [fr.permalinks.page]
@@ -9,5 +12,8 @@ news = "/actualites/:slug/"
 [en]
 languageName = "English"
 weight = 2
+[en.params]
+ogLocale = "en_US"
+homeLabel = "Home in English"
 [en.permalinks.page]
 news = "/news/:slug/"

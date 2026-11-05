@@ -1,7 +1,7 @@
 ---
 title: "Confidentialité"
 url: "/fr/confidentialite/"
-description: "Ce que calaos.fr mesure, ce qui se passe quand vous affichez les commentaires, et à qui vous adresser."
+description: "Confidentialité de calaos.fr : aucun cookie, ce que mesurent les statistiques Umami, ce qui se passe à l’affichage des commentaires, et le contact."
 ---
 
 Cette page décrit les données que le site calaos.fr traite lorsque vous le visitez. Il est publié par Raoul Hecky, en son nom propre, pour le projet Calaos : voir les [mentions légales](/fr/mentions-legales/).
