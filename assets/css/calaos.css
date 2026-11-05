@@ -161,6 +161,7 @@ section{padding:clamp(64px,9vw,112px) 0}
 .steps b{flex:none;width:32px;height:32px;border-radius:50%;background:var(--text);color:#fff;display:grid;place-items:center;font-size:14px}
 .steps span{display:block;color:var(--muted);font-size:15px}
 .start .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.post .cta{display:flex;flex-wrap:wrap;gap:12px}
 .kit{border-radius:var(--r);background:var(--sky,#e3f1fd);padding:32px;display:grid;place-items:center}
 
 /* Communauté */
