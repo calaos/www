@@ -3,7 +3,8 @@ title = "Calaos"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = true
 disableHugoGeneratorInject = true
-disableKinds = ["taxonomy", "term", "sitemap", "404"]
+disableKinds = ["taxonomy", "term"]
+enableRobotsTXT = true
 
 # The home page has nothing to syndicate; sections keep Hugo's default RSS.
 [outputs]
@@ -17,3 +18,31 @@ disableAliases = true
 [module.hugoVersion]
 extended = true
 min = "0.154.5"
+
+# Mounting the default directories again is required: declaring one mount drops
+# the defaults. static/media is also visible to the image pipeline (OG image,
+# hero WebP, touch icon); it keeps being published as is from static/.
+[[module.mounts]]
+source = "archetypes"
+target = "archetypes"
+[[module.mounts]]
+source = "assets"
+target = "assets"
+[[module.mounts]]
+source = "static/media"
+target = "assets/media"
+[[module.mounts]]
+source = "content"
+target = "content"
+[[module.mounts]]
+source = "data"
+target = "data"
+[[module.mounts]]
+source = "i18n"
+target = "i18n"
+[[module.mounts]]
+source = "layouts"
+target = "layouts"
+[[module.mounts]]
+source = "static"
+target = "static"

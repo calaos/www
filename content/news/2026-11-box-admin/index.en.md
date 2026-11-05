@@ -4,6 +4,7 @@ slug: "box-administration"
 date: 2026-11-05
 draft: false
 summary: "The latest Calaos releases add an Admin page to the web interface: updates, network, services, logs, date and time, security and backup, with no terminal needed; the mobile app and the Calaos Home screen join in too."
+description: "The Calaos web interface gets an Admin tab: manage updates, network, services, logs, date and time, security and backup without a terminal."
 ---
 
 Until now, configuring the box itself (network address, updates, restarting a service) meant opening an SSH session. The latest Calaos releases (calaos-server 4.8.0, web interface 4.2.0, calaos-container 1.9.1) bring these everyday tasks into the web interface, in a new **Admin** tab.

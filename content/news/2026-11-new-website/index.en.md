@@ -3,6 +3,7 @@ title: "A new website for Calaos"
 slug: "new-website"
 date: 2026-11-02
 summary: "calaos.fr has a new look: a site rebuilt from scratch, which shows the Calaos interfaces as they really are, in English and in French."
+description: "calaos.fr has been rebuilt from scratch with Hugo: a simpler static site that shows the Calaos interfaces as they really are, in English and French."
 ---
 
 The calaos.fr website has been rebuilt from scratch.

@@ -1,4 +1,4 @@
-<section class="hero dark" id="top">{{ partial "image.html" (dict "img" .image) }}
+<section class="hero dark" id="top">{{ $img := .image }}{{ with resources.Get $img.src }}{{ $img = merge $img (dict "src" (.Process "webp q80").RelPermalink) }}{{ end }}{{ partial "image.html" (dict "img" $img "lcp" true) }}
 <div class="wrap">{{ range first 1 (where site.RegularPages "Section" "news").ByDate.Reverse }}<a class="np" href="{{ .RelPermalink }}"><span class="np-tag">{{ T "news_tag" }}</span><span class="np-t">{{ .Title }}</span>{{ partial "icon.html" "arrow" }}</a>{{ end }}<h1>{{ partial "emphasis.html" (dict "text" .title "class" "y") }}</h1>
 <p class="lead">{{ .lead }}</p>
 <div class="cta">{{ range $i, $b := .buttons }}<a class="btn {{ if $i }}btn-s{{ else }}btn-p{{ end }}" href="{{ .url }}">{{ .label }} {{ partial "icon.html" .icon }}</a>{{ end }}</div>

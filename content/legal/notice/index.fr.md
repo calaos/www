@@ -1,7 +1,7 @@
 ---
 title: "Mentions légales"
 url: "/fr/mentions-legales/"
-description: "Éditeur et contact du site calaos.fr."
+description: "Mentions légales du site calaos.fr : identité de son éditeur, directeur de la publication, et adresse de contact pour les demandes juridiques."
 ---
 
 ## Éditeur du site

@@ -1,7 +1,7 @@
 ---
 title: "Privacy"
 url: "/en/privacy/"
-description: "What calaos.fr measures, what happens when you show the comments, and who to contact."
+description: "Privacy of calaos.fr: no cookie, what the Umami statistics measure, what happens when you show the comments, and who to contact."
 ---
 
 This page describes the data the calaos.fr website handles when you visit it. It is published by Raoul Hecky, in his own name, for the Calaos project: see the [legal notice](/en/legal-notice/).

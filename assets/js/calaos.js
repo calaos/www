@@ -19,7 +19,7 @@ const mq=matchMedia("(prefers-reduced-motion: reduce)");
 if(!mq.matches){document.documentElement.classList.add("mo");
 const q=x=>[...document.querySelectorAll(x)],nav=document.getElementById("nav"),bar=document.createElement("div");
 bar.className="m3-bar";document.body.append(bar);
-q("h2,.flow li,.why li,.row").filter(e=>!e.closest(".news,.post")).forEach((e,i)=>{e.classList.add("rv");e.style.setProperty("--rd",(i%4)*.06+"s")});
+q("h2,.flow li,.why li,.row").filter(e=>!e.closest(".news,.post,footer")).forEach((e,i)=>{e.classList.add("rv");e.style.setProperty("--rd",(i%4)*.06+"s")});
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.2,rootMargin:"0px 0px -8% 0px"});
 q(".rv").forEach(e=>io.observe(e));
 const d5=document.querySelector(".d5b");let ft=0;

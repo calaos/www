@@ -161,6 +161,7 @@ section{padding:clamp(64px,9vw,112px) 0}
 .steps b{flex:none;width:32px;height:32px;border-radius:50%;background:var(--text);color:#fff;display:grid;place-items:center;font-size:14px}
 .steps span{display:block;color:var(--muted);font-size:15px}
 .start .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.post .cta{display:flex;flex-wrap:wrap;gap:12px}
 .kit{border-radius:var(--r);background:var(--sky,#e3f1fd);padding:32px;display:grid;place-items:center}
 
 /* Communauté */
@@ -175,7 +176,7 @@ footer{background:var(--mist);padding:56px 0 84px;font-size:15px}
 footer .cols{display:grid;gap:32px;grid-template-columns:1fr 1fr}
 @media(min-width:800px){footer .cols{grid-template-columns:1.6fr 1fr 1fr 1fr}}
 footer .logo{color:var(--text)}
-footer h4{margin:0 0 8px;font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+footer h2{margin:0 0 8px;font-size:13px;font-weight:700;line-height:inherit;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
 footer ul{list-style:none;margin:0;padding:0}
 footer li a,footer p a{display:inline-flex;min-height:44px;align-items:center;text-decoration:none}
 footer li a:hover,footer p a:hover{text-decoration:underline}
@@ -264,7 +265,7 @@ footer .logo{color:#080808}footer .logo svg>path{fill:url(#lg-wl)}footer .logo g
 .mo .d5b figure{perspective:1200px}
 .mo .d5b img{transform:rotateX(var(--ty,0deg)) rotateY(var(--tx,0deg));transition:transform .25s ease-out;will-change:transform}
 .mo .why li,.mo .flow li,.mo .row .ph{background-image:radial-gradient(260px circle at var(--mx,-999px) var(--my,-999px),rgba(58,180,215,.16),transparent 70%)}
-@media(max-width:760px){.d5b figcaption,.row .tag{display:none}.eyebrow,.note,footer h4{font-size:14px}.mo .rv{transform:none;transition:opacity .4s ease}}
+@media(max-width:760px){.d5b figcaption,.row .tag{display:none}.eyebrow,.note,footer h2{font-size:14px}.mo .rv{transform:none;transition:opacity .4s ease}}
 
 /* actualités : bandeau sombre dans le prolongement du menu, corps clair */
 .phead{padding:clamp(40px,7vw,80px) 0 clamp(36px,6vw,64px)}

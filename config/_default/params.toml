@@ -1,4 +1,6 @@
 email = "team@calaos.fr"
+# Used by the structured data (sameAs).
+github = "https://github.com/calaos"
 
 [umami]
 script = "https://cloud.umami.is/script.js"

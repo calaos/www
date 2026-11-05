@@ -1,12 +1,37 @@
+{{- $is404 := eq .Kind "404" -}}
+{{- $title := cond $is404 (T "404_title") .Title -}}
+{{- $desc := cond $is404 (T "404_text") (or .Description (cond .IsPage (.Summary | plainify) "")) -}}
 <head><script>document.documentElement.classList.add("js")</script><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ .Title }}{{ if not .IsHome }} | {{ site.Title }}{{ end }}</title>
-{{ with or .Description (cond .IsPage (.Summary | plainify) "") }}<meta name="description" content="{{ . }}">{{ end }}
-{{ $canon := .Permalink }}{{ if and .IsSection (eq .Section "news") }}{{ $canon = (partial "news-pager.html" .).URL | absURL }}{{ end -}}
+<title>{{ $title }}{{ if not .IsHome }} | {{ site.Title }}{{ end }}</title>
+{{ with $desc }}<meta name="description" content="{{ . }}">{{ end }}
+{{ if $is404 }}<meta name="robots" content="noindex">
+{{ else }}{{ $canon := .Permalink }}{{ if and .IsSection (eq .Section "news") }}{{ $canon = (partial "news-pager.html" .).URL | absURL }}{{ end -}}
 <link rel="canonical" href="{{ $canon }}">
 {{ range .AllTranslations }}<link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
 {{ end }}{{ if .IsHome }}<link rel="alternate" hreflang="x-default" href="{{ site.BaseURL }}">
-{{ end }}{{ with .CurrentSection.OutputFormats.Get "rss" }}<link rel="alternate" type="application/rss+xml" href="{{ .Permalink }}" title="{{ site.Title }} – {{ $.CurrentSection.Title }}">
-{{ end }}<link rel="icon" href="{{ "media/favicon.png" | relURL }}" type="image/png">
+{{ end }}{{ $img := partial "og-image.html" . -}}
+<meta property="og:site_name" content="{{ site.Title }}">
+<meta property="og:type" content="{{ cond (and .IsPage (eq .Section "news")) "article" "website" }}">
+<meta property="og:title" content="{{ $title }}">
+{{ with $desc }}<meta property="og:description" content="{{ . }}">
+{{ end }}<meta property="og:url" content="{{ $canon }}">
+<meta property="og:locale" content="{{ site.Params.ogLocale }}">
+{{ range .AllTranslations }}{{ if ne .Lang $.Lang }}<meta property="og:locale:alternate" content="{{ .Site.Params.ogLocale }}">
+{{ end }}{{ end }}<meta property="og:image" content="{{ $img.Permalink }}">
+<meta property="og:image:width" content="{{ $img.Width }}">
+<meta property="og:image:height" content="{{ $img.Height }}">
+<meta property="og:image:alt" content="{{ $title }}">
+{{ if and .IsPage (eq .Section "news") }}<meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+<meta property="article:modified_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">
+{{ end }}<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ $title }}">
+{{ with $desc }}<meta name="twitter:description" content="{{ . }}">
+{{ end }}<meta name="twitter:image" content="{{ $img.Permalink }}">
+{{ partial "schema.html" . }}{{ end -}}
+{{ $feed := .CurrentSection }}{{ if or .IsHome $is404 }}{{ $feed = site.GetPage "/news" }}{{ end }}{{ with $feed }}{{ with .OutputFormats.Get "rss" }}<link rel="alternate" type="application/rss+xml" href="{{ .Permalink }}" title="{{ site.Title }} – {{ $feed.Title }}">
+{{ end }}{{ end }}<link rel="icon" href="{{ "media/favicon.png" | relURL }}" type="image/png">
+<link rel="icon" href="{{ "favicon.ico" | relURL }}" sizes="32x32">
+<link rel="apple-touch-icon" href="{{ (partial "touch-icon.html").RelPermalink }}">
 <link rel="preload" href="{{ "fonts/manrope/manrope-latin.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
 {{ with resources.Get "css/calaos.css" | minify | fingerprint }}<link rel="stylesheet" href="{{ .RelPermalink }}">{{ end }}
 {{ partial "umami.html" . }}

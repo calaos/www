@@ -1,4 +1,5 @@
 {{ define "main" }}
+<main id="content">
 {{ partial "home/hero.html" .Params.hero }}
 {{ partial "home/kiosk.html" .Params.kiosk }}
 {{ partial "home/how.html" .Params.how }}
@@ -9,4 +10,5 @@
 {{ partial "home/start.html" .Params.start }}
 {{ partial "home/community.html" (dict "community" .Params.community "support" .Params.support) }}
 {{ partial "home/news.html" . }}
+</main>
 {{ end }}

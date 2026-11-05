@@ -44,9 +44,32 @@ The template is in `layouts/`: `baseof.html` for the shell shared by every page,
 News
 ---
 
-Articles are in `content/news/`, one folder per article with `index.fr.md` and `index.en.md` (same folder = translations of each other). Start one with `hugo new content news/2026-12-my-topic/index.fr.md`: set `title`, `slug` (the URL, `/fr/actualites/<slug>/`, `/en/news/<slug>/`), `summary` (list and RSS), then remove `draft: true` to publish. The list shows the newest first, 10 per page, and has its RSS feed.
+Articles are in `content/news/`, one folder per article with `index.fr.md` and `index.en.md` (same folder = translations of each other). Start one with `hugo new content news/2026-12-my-topic/index.fr.md`: set `title`, `slug` (the URL, `/fr/actualites/<slug>/`, `/en/news/<slug>/`), `summary` (list and RSS), `description` (meta description and link previews, 120 to 160 characters, not a copy of the summary), then remove `draft: true` to publish. The list shows the newest first, 10 per page, and has its RSS feed.
 
 Comments use [giscus](https://giscus.app) (GitHub Discussions) and stay off while any value of `[giscus]` in `config/_default/params.toml` is empty. To turn them on: enable Discussions on the GitHub repository, install the giscus app on it, choose an announcement-type category on giscus.app, and copy `repo`, `repoId`, `category` and `categoryId` from the snippet it shows. Each article is its own discussion (`fr/<folder>`, `en/<folder>`), so do not rename an article folder once it has comments. Nothing from giscus or GitHub loads before the visitor clicks « Afficher les commentaires », except on the way back from GitHub sign-in: the address then carries `?giscus=<session>`, and comments load at once so that giscus takes the token out of it (Umami is set to leave the query string out). That return path only applies in a tab where the button was clicked (`comments-ok` flag in sessionStorage, cleared by that return, so a second sign-in return needs a new click); a `?giscus=` link alone shows the button as usual. Once signed in, giscus keeps `giscus-session` in the localStorage of calaos.fr. If the server sends a Content-Security-Policy, it must allow `https://giscus.app` in `script-src` and `frame-src`.
+
+Search engines and link previews
+---
+
+Hugo generates, with no extra step:
+
+- `sitemap.xml` (index) and `/fr/sitemap.xml`, `/en/sitemap.xml`, with the hreflang alternates of every page, the legal pages and the news included.
+- `robots.txt`: everything allowed, and a `Sitemap:` line with the absolute production URL built from `baseURL`.
+- Open Graph and Twitter Card tags, `og:locale` and its alternate, and JSON-LD (Organization, WebSite and SoftwareApplication on the home page, BlogPosting on articles; the organization is the author, no person is named).
+- `/apple-touch-icon.png` (from `media/favicon.png`). `static/favicon.ico` is committed, made from the same file with ImageMagick (`magick static/media/favicon.png -define icon:auto-resize=32,16 static/favicon.ico`): Hugo cannot write ICO.
+
+The social image of an article is its `image` front matter, a path under `static/media/` (`image: media/my-photo.jpg`), cropped by Hugo to 1200×630; without it every page uses the hero photo. A wrong path fails the build.
+
+Submitting `https://calaos.fr/sitemap.xml` in Google Search Console is a manual step.
+
+404 page
+---
+
+Hugo writes `/fr/404.html` and `/en/404.html` (`noindex`, links to both home pages). The server must serve one of them with the 404 status. To add to the nginx `server` block of calaos.fr (not part of this repository):
+
+    error_page 404 /en/404.html;
+
+The page is served as is, whatever the language of the missing URL; use `/fr/404.html` to default to French.
 
 Build
 ---

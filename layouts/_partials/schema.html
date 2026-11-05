@@ -1,0 +1,16 @@
+{{- /* JSON-LD. The organization is the author and publisher: no person is named. */ -}}
+{{- $home := site.BaseURL -}}
+{{- $orgID := printf "%s#organization" site.BaseURL -}}
+{{- $org := dict "@type" "Organization" "@id" $orgID "name" site.Title "url" $home "logo" (partial "touch-icon.html").Permalink "sameAs" (slice site.Params.github) -}}
+{{- $graph := slice -}}
+{{- if .IsHome -}}
+  {{- $graph = $graph | append $org -}}
+  {{- $graph = $graph | append (dict "@type" "WebSite" "@id" (printf "%s#website" site.BaseURL) "name" site.Title "url" $home "inLanguage" .Lang "publisher" (dict "@id" $orgID)) -}}
+  {{- $graph = $graph | append (dict "@type" "SoftwareApplication" "name" site.Title "url" $home "description" .Description "applicationCategory" "HomeApplication" "license" "https://www.gnu.org/licenses/gpl-3.0.html" "publisher" (dict "@id" $orgID)) -}}
+{{- else if and .IsPage (eq .Section "news") -}}
+  {{- $img := partial "og-image.html" . -}}
+  {{- $graph = $graph | append (dict "@type" "BlogPosting" "headline" .Title "description" (or .Description (.Summary | plainify)) "inLanguage" .Lang "mainEntityOfPage" .Permalink "url" .Permalink "datePublished" (.Date.Format "2006-01-02T15:04:05Z07:00") "dateModified" (.Lastmod.Format "2006-01-02T15:04:05Z07:00") "image" $img.Permalink "author" $org "publisher" $org) -}}
+{{- end -}}
+{{- with $graph -}}
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@graph" . | jsonify | safeJS }}</script>
+{{ end -}}
