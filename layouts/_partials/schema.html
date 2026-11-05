@@ -1,7 +1,7 @@
 {{- /* JSON-LD. The organization is the author and publisher: no person is named. */ -}}
 {{- $home := site.BaseURL -}}
 {{- $orgID := printf "%s#organization" site.BaseURL -}}
-{{- $org := dict "@type" "Organization" "@id" $orgID "name" site.Title "url" $home "logo" (partial "touch-icon.html").Permalink "sameAs" (slice site.Params.github) -}}
+{{- $org := dict "@type" "Organization" "@id" $orgID "name" site.Title "url" $home "logo" ("media/logo.png" | absURL) "sameAs" (slice site.Params.github) -}}
 {{- $graph := slice -}}
 {{- if .IsHome -}}
   {{- $graph = $graph | append $org -}}

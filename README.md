@@ -56,7 +56,8 @@ Hugo generates, with no extra step:
 - `sitemap.xml` (index) and `/fr/sitemap.xml`, `/en/sitemap.xml`, with the hreflang alternates of every page, the legal pages and the news included.
 - `robots.txt`: everything allowed, and a `Sitemap:` line with the absolute production URL built from `baseURL`.
 - Open Graph and Twitter Card tags, `og:locale` and its alternate, and JSON-LD (Organization, WebSite and SoftwareApplication on the home page, BlogPosting on articles; the organization is the author, no person is named).
-- `/apple-touch-icon.png` (from `media/favicon.png`). `static/favicon.ico` is committed, made from the same file with ImageMagick (`magick static/media/favicon.png -define icon:auto-resize=32,16 static/favicon.ico`): Hugo cannot write ICO.
+- `static/media/logo.png`: 512×512 transparent PNG (the touch icon cut out of the Calaos logo), used as the `logo` of the JSON-LD Organization and as the page icon.
+- `/apple-touch-icon.png` (180 px, from `media/logo.png`). `static/favicon.ico` is committed, made from the same file with ImageMagick (`magick static/media/logo.png -define icon:auto-resize=48,32,16 static/favicon.ico`): Hugo cannot write ICO.
 
 The social image of an article is its `image` front matter, a path under `static/media/` (`image: media/my-photo.jpg`), cropped by Hugo to 1200×630; without it every page uses the hero photo. A wrong path fails the build.
 
@@ -70,6 +71,19 @@ Hugo writes `/fr/404.html` and `/en/404.html` (`noindex`, links to both home pag
     error_page 404 /en/404.html;
 
 The page is served as is, whatever the language of the missing URL; use `/fr/404.html` to default to French.
+
+Two more nginx settings to apply (also outside this repository). Fingerprinted CSS and JS (`/css/*.min.<hash>.css`, `/js/*.min.<hash>.js`) never change under the same name, so they can be cached for a year:
+
+    location ~* \.[0-9a-f]{64}\.(css|js)$ {
+        add_header Cache-Control "public, max-age=31536000, immutable";
+    }
+
+And `www.calaos.fr` redirects to the apex with a 301, so that only one host is indexed:
+
+    server {
+        server_name www.calaos.fr;
+        return 301 https://calaos.fr$request_uri;
+    }
 
 Build
 ---
