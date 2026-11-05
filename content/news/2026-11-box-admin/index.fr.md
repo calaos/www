@@ -3,10 +3,10 @@ title: "Administrer sa box Calaos depuis le navigateur"
 slug: "administration-de-la-box"
 date: 2026-11-05
 draft: false
-summary: "Calaos 4.8 ajoute une page Admin à l'interface web : mises à jour, réseau, services, journaux, date et heure, sécurité et sauvegarde, sans ouvrir de terminal ; l'application mobile et l'écran Calaos Home s'y mettent aussi."
+summary: "Les dernières versions de Calaos ajoutent une page Admin à l'interface web : mises à jour, réseau, services, journaux, date et heure, sécurité et sauvegarde, sans ouvrir de terminal ; l'application mobile et l'écran Calaos Home s'y mettent aussi."
 ---
 
-Jusqu'ici, régler la box elle-même (adresse réseau, mises à jour, redémarrage d'un service) demandait une connexion SSH. Calaos 4.8 (calaos-server 4.8.0, interface web 4.2.0, calaos-container 1.9.1) met ces tâches courantes dans l'interface web, dans un nouvel onglet **Admin**.
+Jusqu'ici, régler la box elle-même (adresse réseau, mises à jour, redémarrage d'un service) demandait une connexion SSH. Les dernières versions de Calaos (calaos-server 4.8.0, interface web 4.2.0, calaos-container 1.9.1) mettent ces tâches courantes dans l'interface web, dans un nouvel onglet **Admin**.
 
 L'onglet est protégé par un mot de passe d'administration. Une fois déverrouillé, il affiche un accueil avec une carte par sujet.
 
