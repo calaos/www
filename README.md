@@ -56,34 +56,45 @@ Hugo generates, with no extra step:
 - `sitemap.xml` (index) and `/fr/sitemap.xml`, `/en/sitemap.xml`, with the hreflang alternates of every page, the legal pages and the news included.
 - `robots.txt`: everything allowed, and a `Sitemap:` line with the absolute production URL built from `baseURL`.
 - Open Graph and Twitter Card tags, `og:locale` and its alternate, and JSON-LD (Organization, WebSite and SoftwareApplication on the home page, BlogPosting on articles; the organization is the author, no person is named).
-- `static/media/logo.png`: 512×512 transparent PNG (the touch icon cut out of the Calaos logo), used as the `logo` of the JSON-LD Organization and as the page icon.
-- `/apple-touch-icon.png` (180 px, from `media/logo.png`). `static/favicon.ico` is committed, made from the same file with ImageMagick (`magick static/media/logo.png -define icon:auto-resize=48,32,16 static/favicon.ico`): Hugo cannot write ICO.
+- `static/media/logo.png`: 512×512 transparent 32-bit PNG (the touch icon cut out of the Calaos logo, reflection removed), used as the `logo` of the JSON-LD Organization and as the page icon.
+- `static/apple-touch-icon.png`: 180×180, opaque `#171717` background, logo centered at about 80 % (iOS fills transparency with black and applies its own rounded mask, so the square is full-bleed). Made with `magick static/media/logo.png -resize 144x144 -background '#171717' -gravity center -extent 180x180 -alpha remove -alpha off static/apple-touch-icon.png`. `static/favicon.ico` is committed, made from the same file with ImageMagick (`magick static/media/logo.png -define icon:auto-resize=48,32,16 static/favicon.ico`): Hugo cannot write ICO.
 
 The social image of an article is its `image` front matter, a path under `static/media/` (`image: media/my-photo.jpg`), cropped by Hugo to 1200×630; without it every page uses the hero photo. A wrong path fails the build.
 
 Submitting `https://calaos.fr/sitemap.xml` in Google Search Console is a manual step.
 
-404 page
+404 page and nginx
 ---
 
-Hugo writes `/fr/404.html` and `/en/404.html` (`noindex`, links to both home pages). The server must serve one of them with the 404 status. To add to the nginx `server` block of calaos.fr (not part of this repository):
-
-    error_page 404 /en/404.html;
-
-The page is served as is, whatever the language of the missing URL; use `/fr/404.html` to default to French.
-
-Two more nginx settings to apply (also outside this repository). Fingerprinted CSS and JS (`/css/*.min.<hash>.css`, `/js/*.min.<hash>.js`) never change under the same name, so they can be cached for a year:
-
-    location ~* \.[0-9a-f]{64}\.(css|js)$ {
-        add_header Cache-Control "public, max-age=31536000, immutable";
-    }
-
-And `www.calaos.fr` redirects to the apex with a 301, so that only one host is indexed:
+Hugo writes `/fr/404.html` and `/en/404.html` (`noindex`, links to both home pages). The server must serve them with the 404 status. Nginx settings for calaos.fr (not part of this repository); TLS is terminated by haproxy upstream, hence port 80 without certificate:
 
     server {
+        listen 80;
         server_name www.calaos.fr;
         return 301 https://calaos.fr$request_uri;
     }
+
+    server {
+        # ... existing calaos.fr settings ...
+
+        # $calaos_lang comes from a map defined at the http level, outside this file.
+        location = / {
+            # existing: 302 to /fr/ or /en/ according to $calaos_lang
+        }
+
+        error_page 404 /en/404.html;
+
+        location /fr/ {
+            error_page 404 /fr/404.html;
+            try_files $uri $uri/ =404;
+        }
+
+        location ~* \.[0-9a-f]{64}\.(css|js)$ {
+            add_header Cache-Control "public, max-age=31536000, immutable";
+        }
+    }
+
+`www.calaos.fr` redirects to the apex so that only one host is indexed. Missing URLs get the English 404 page, except under `/fr/` which gets the French one. Fingerprinted CSS and JS (`/css/*.min.<hash>.css`, `/js/*.min.<hash>.js`) never change under the same name, so they can be cached for a year. Note: `add_header` inside a `location` replaces every header inherited from the `server` level; repeat there any header that must also apply to these files.
 
 Build
 ---

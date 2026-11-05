@@ -31,7 +31,7 @@
 {{ $feed := .CurrentSection }}{{ if or .IsHome $is404 }}{{ $feed = site.GetPage "/news" }}{{ end }}{{ with $feed }}{{ with .OutputFormats.Get "rss" }}<link rel="alternate" type="application/rss+xml" href="{{ .Permalink }}" title="{{ site.Title }} – {{ $feed.Title }}">
 {{ end }}{{ end }}<link rel="icon" href="{{ "media/logo.png" | relURL }}" type="image/png" sizes="512x512">
 <link rel="icon" href="{{ "favicon.ico" | relURL }}" sizes="16x16 32x32 48x48">
-<link rel="apple-touch-icon" href="{{ (partial "touch-icon.html").RelPermalink }}">
+<link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | relURL }}">
 <link rel="preload" href="{{ "fonts/manrope/manrope-latin.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
 {{ with resources.Get "css/calaos.css" | minify | fingerprint }}<link rel="stylesheet" href="{{ .RelPermalink }}">{{ end }}
 {{ partial "umami.html" . }}
